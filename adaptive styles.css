@@ -6,12 +6,12 @@ h1, h2, h3, h4, h5, h6, .decor{font-family: 'Cormorant'}
 header, nav, section, footer, article, aside{display: block;}
 ul {list-style-type: none;}
 
-
+/*Стили для головы сайта*/
 header img.logo{max-height: 67px; max-width: 62px;}
 header #bur-menu{display: none; max-height: 40px; max-width: 36px;}
 #cart_img{background-color: black; max-height: 42px; max-width: 42px;}/*временный стиль для отладки*/
 
-header{height: 100px ; overflow: hidden !important;}
+header{height: 100px; overflow: hidden !important;}
 header ul li{
     display: inline;
     padding: 2vw;
@@ -21,16 +21,27 @@ header .logosection{
     height: inherit;
 }
 
-@media screen and (max-width: 550px) {
+footer{height: 100px;}
+footer img.media{max-height: 40px; max-width: 40px;}
+footer #copyright_bigscreen{font-size: 16px; display: flex;}
+footer #copyright_smallscreen{font-size: 12px; margin-top: 12px ; display: none;}
+footer .mediaholder{width: 174px; display: flex; justify-content: space-between;}
+
+@media screen and (max-width: 550px) {/*Адаптивное отображение при уменьшении вкладки*/
     html {
        -webkit-text-size-adjust: none;
     }
-    nav{display:none;}
-    .cartholder{display:none;}
-    img.logo{max-height: 64px; max-width: 60px;}
-    #logo-name{display: none;}
-    #bur-menu{display: flex !important;}
- }
+    header nav{display:none;}
+    header .cartholder{display:none;}
+    header img.logo{max-height: 64px; max-width: 60px;}
+    header #logo-name{display: none;}
+    header #bur-menu{display: flex !important;}
+    
+    footer.container.flex{flex-flow: column; align-items: center;}
+    footer .mediaholder{width: 234px !important;}
+    footer #copyright_bigscreen{display: none;}
+    footer #copyright_smallscreen{display: block !important;}
+}
 
 /*Классы для многоразового использования*/
 .container{
