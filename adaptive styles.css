@@ -1,0 +1,43 @@
+*{/*Объявление общих стилей*/
+    margin: 0; padding: 0;
+    font-family: 'Tahoma';
+}
+h1, h2, h3, h4, h5, h6, .decor{font-family: 'Cormorant'}
+header, nav, section, footer, article, aside{display: block;}
+ul {list-style-type: none;}
+
+
+header img.logo{max-height: 67px; max-width: 62px;}
+header #bur-menu{display: none; max-height: 40px; max-width: 36px;}
+#cart_img{background-color: black; max-height: 42px; max-width: 42px;}/*временный стиль для отладки*/
+
+header{height: 100px ; overflow: hidden !important;}
+header ul li{
+    display: inline;
+    padding: 2vw;
+}
+header .logosection{
+    display: flex;
+    height: inherit;
+}
+
+@media screen and (max-width: 550px) {
+    html {
+       -webkit-text-size-adjust: none;
+    }
+    nav{display:none;}
+    .cartholder{display:none;}
+    img.logo{max-height: 64px; max-width: 60px;}
+    #logo-name{display: none;}
+    #bur-menu{display: flex !important;}
+ }
+
+/*Классы для многоразового использования*/
+.container{
+    width: 87.5vw; margin: 0 auto;
+    overflow: auto;
+}
+.flex {
+    display: flex; justify-content: space-between;
+    align-items: center; height: 100%;
+}
