@@ -32,16 +32,37 @@ header #cart_counter{
     padding: 10px 30px 10px 8px;
     box-sizing: border-box;
 }
-header .cartholder{display: flex;}
+.cartholder{display: flex;}
 
 /*Стили "альтернативного" меню - для телефона*/
-#alt-menu{display: none; margin-bottom: 100px;}
+#alt-menu{display: none;}
 #alt-menu #close_cross{
     border: none;
     margin-left: 90vw; margin-top: 5vw;
 }
 #alt-menu #close_cross #close_cross_img{max-width: 30px; max-height: 30px;}
-#alt-menu nav.container.flex{flex-flow: column; height: 30vh; margin-top: 15vh;}
+#alt-menu nav.container.flex{flex-flow: column; height: 50vh; margin-top: 15vh;}
+#alt-menu #cart_counter_phone{
+    border: 1px solid; display: block;
+    border-radius: 10px;
+    height: 61px; margin-right: -20px;
+    padding: 10px 30px 10px 8px;
+    box-sizing: border-box;
+}
+#alt-menu #cart_img_phone{
+    max-height: 42px; max-width: 42px;
+    border-radius: 10px; border-width: 10px;
+    border-style: solid;
+}
+#alt-menu #cart_phone{border: none; display: block;}
+#alt-menu #cart_counter_phone{
+    border: 1px solid; display: block;
+    border-radius: 10px;
+    height: 61px; margin-right: -20px;
+    padding: 10px 30px 10px 8px;
+    box-sizing: border-box;
+}
+#alt-menu .cartholder{margin-top: 5vh;}
 
 
 /*Стили для подвала сайта*/
