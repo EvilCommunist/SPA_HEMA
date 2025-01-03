@@ -14,7 +14,7 @@ header #cart_img{
     border-radius: 10px; border-width: 10px;
     border-style: solid;
 }
-header #cart{border: none;}
+header #cart{border: none; display: block;}
 header{padding-top: 10px; height: 100px; overflow: hidden !important;}
 header ul li{
     display: inline;
@@ -25,7 +25,14 @@ header .logosection{
     height: inherit;
 }
 header .logosection h2{padding-top: 5px;}
-header #cart_counter{border: 1px solid;}
+header #cart_counter{
+    border: 1px solid; display: block;
+    border-radius: 10px;
+    height: 61px; margin-right: -20px;
+    padding: 10px 30px 10px 8px;
+    box-sizing: border-box;
+}
+header .cartholder{display: flex;}
 
 
 /*Стили для подвала сайта*/
