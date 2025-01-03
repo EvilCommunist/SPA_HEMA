@@ -1,37 +1,14 @@
 // compress: true
+@import "vars.less";
 
-// Цвета
-@white: #fff;
-@light_gray: #d7dEE5;
-@gray: #adb5bd;
-@dark: #343a40;
-@golden: #f7b32b;
-@red: #f72c3d;
-@green: #78bc61;
-@blue: #78d5E2;
-
-// Размеры шрифтов - большой экран
-@header1: 32px;
-@header2: 24px;
-@sub_header: 20px;
-@text: 16px;
-@small_text: 12px;
-// Размеры шрифтов - маленький экран
-@header1_small: 24px;
-@header2_small: 20px;
-@sub_header_small: 16px;
-@text_small: 14px;
-@small_text_small: 10px;
-
-
-header .logosection{
-    color: @golden;
-    font-size: @text;
-}
+header .logosection{color: @golden; font-size: @text;}
 header nav{color: @golden;}
 header nav ul li{font-size: @sub_header;}
-header #cart_img{background-color: @red;}
+header #cart_img{background-color: @red; border-color: @red;}
+header #cart{background-color: @white;}
+header a{text-decoration: none; color: @golden}
+header a:hover{border-bottom: 2px solid; border-color: @golden;}
+header #cart_counter{font-size: @text_small; color: @dark;}
 
-
-footer #copyright_bigscreen{font-size: @text;}
-footer #copyright_smallscreen{font-size: @small_text_small;}
+footer #copyright_bigscreen{font-size: @text; color: @dark;}
+footer #copyright_smallscreen{font-size: @small_text_small; color: @dark;}

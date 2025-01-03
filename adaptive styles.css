@@ -9,9 +9,13 @@ ul {list-style-type: none;}
 /*Стили для головы сайта*/
 header img.logo{max-height: 67px; max-width: 62px;}
 header #bur-menu{display: none; max-height: 40px; max-width: 36px;}
-#cart_img{max-height: 42px; max-width: 42px;}/*временный стиль для отладки*/
-
-header{height: 100px; overflow: hidden !important;}
+header #cart_img{
+    max-height: 42px; max-width: 42px;
+    border-radius: 10px; border-width: 10px;
+    border-style: solid;
+}
+header #cart{border: none;}
+header{padding-top: 10px; height: 100px; overflow: hidden !important;}
 header ul li{
     display: inline;
     padding: 2vw;
@@ -21,7 +25,10 @@ header .logosection{
     height: inherit;
 }
 header .logosection h2{padding-top: 5px;}
+header #cart_counter{border: 1px solid;}
 
+
+/*Стили для подвала сайта*/
 footer{height: 100px;}
 footer img.media{max-height: 40px; max-width: 40px;}
 footer #copyright_bigscreen{display: flex;}
