@@ -34,9 +34,18 @@ header #cart_counter{
 }
 header .cartholder{display: flex;}
 
+/*Стили "альтернативного" меню - для телефона*/
+#alt-menu{display: none; margin-bottom: 100px;}
+#alt-menu #close_cross{
+    border: none;
+    margin-left: 90vw; margin-top: 5vw;
+}
+#alt-menu #close_cross #close_cross_img{max-width: 30px; max-height: 30px;}
+#alt-menu nav.container.flex{flex-flow: column; height: 30vh; margin-top: 15vh;}
+
 
 /*Стили для подвала сайта*/
-footer{height: 100px;}
+footer{height: 100px; margin-top: 10px;}
 footer img.media{max-height: 40px; max-width: 40px;}
 footer #copyright_bigscreen{display: flex;}
 footer #copyright_smallscreen{margin-top: 12px ; display: none;}
