@@ -7,7 +7,8 @@
     <link rel="icon" sizes="1024x1024" href="Assets/goldgrif.png">
     <link rel="stylesheet" href="adaptive styles.css">
     <link rel="stylesheet" href="main styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -39,10 +40,10 @@
     </header>
     <!--Секция отображения основного содержимого страницы-->
     <section id="page">
-
+        <router-view></router-view>
     </section>
-    <!--Подключение скриптов для работы одностраничного приложения-->
-    <script src="https://unpkg.com/vue-router@4"></script>
+    <!--Подключение скрипта для работы одностраничного приложения-->
+    <script type="module" src="router.js"></script>
     <!--Подвал сайта, содержит марку правообладателя и ссылки на соцсети магазина-->
     <footer class="container flex">
         <span id="copyright_bigscreen">Золотой Грифон &copy; Все права защищены</span>

@@ -39,7 +39,7 @@ header #cart_counter{
 #alt-menu{display: none;}
 #alt-menu #close_cross{
     border: none;
-    margin-left: 90vw; margin-top: 5vw;
+    margin-left: 85vw; margin-top: 5vw;
 }
 #alt-menu #close_cross:hover{cursor:pointer;}
 #alt-menu #close_cross #close_cross_img{max-width: 30px; max-height: 30px;}

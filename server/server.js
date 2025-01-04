@@ -15,6 +15,9 @@ const server = http.createServer((req, res) => {
     const extname = path.extname(filePath);
     let contentType = 'text/html';
     switch (extname) {
+        case '.vue':
+            contentType = 'text/javascript';
+            break;
         case '.js':
             contentType = 'text/javascript';
             break;
