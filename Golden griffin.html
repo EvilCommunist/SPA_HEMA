@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+    <!--Альтернативное навигационное меню для работы на маленьком экране/экране телефона-->
     <div id="alt-menu">
         <button id="close_cross"><img id="close_cross_img" src="Assets/close-cross.png" alt="close"></button>
         <nav class="container flex">
@@ -18,7 +19,9 @@
                 <button id="cart_phone"><img src="Assets/cart.png" alt="cart_img" id="cart_img_phone"></button></div>
         </nav>
     </div>
+    <!--Скрипт для открытия/сокрытия альтернативного меню-->
     <script src="small-size menuholder.js"></script>
+    <!--Заголовочник сайта - содержит логотип, навигационное меню общую корзину-->
     <header class="container flex">
         <div class="logosection"><img src="Assets/goldgrif.png" alt="logo" class="logo">
         <h2 id="logo-name">Золотой<br>грифон</h2></div>
@@ -33,9 +36,11 @@
         <button id="cart"><img src="Assets/cart.png" alt="cart_img" id="cart_img"></button></div>
         <img src="Assets/burger-menu.png" alt="menu" id="bur-menu">
     </header>
+    <!--Секция отображения основного содержимого страницы-->
     <section id="page">
 
     </section>
+    <!--Подвал сайта, содержит марку правообладателя и ссылки на соцсети магазина-->
     <footer class="container flex">
         <span id="copyright_bigscreen">Золотой Грифон &copy; Все права защищены</span>
         <div class="mediaholder"><img src="Assets/whatsapp.png" alt="whatsapp" class="media">
