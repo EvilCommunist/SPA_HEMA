@@ -1,3 +1,10 @@
+<script>
+export default {
+name: 'TheFooter'
+}
+</script>
+
+
 <template>
     <footer class="container flex">
       <span id="copyright_bigscreen">Золотой Грифон &copy; Все права защищены</span>
@@ -10,11 +17,6 @@
     </footer>
 </template>
 
-<script>
-export default {
-name: 'TheFooter'
-}
-</script>
 
 <style scoped lang="less">
 @import "./Styles/adaptive styles.css";

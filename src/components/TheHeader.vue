@@ -1,3 +1,27 @@
+<script>
+export default {
+name: 'TheHeader',
+mounted() {
+    // Логика из small-size menuholder.js
+    $('#bur-menu').on('click', () => {
+      $('#alt-menu').toggle();
+      $('#page').hide();
+      $('header').hide();
+      $('footer').hide();
+    });
+
+    $('#close_cross').on('click', () => {
+      $('#alt-menu').hide();
+      $('#page').toggle();
+      $('header').toggle();
+      $('footer').toggle();
+    });
+  },
+}
+</script>
+
+
+
 <template>
     <div>
       <!-- Альтернативное навигационное меню для работы на маленьком экране/экране телефона -->
@@ -33,27 +57,6 @@
     </div>
 </template>
 
-<script>
-export default {
-name: 'TheHeader',
-mounted() {
-    // Логика из small-size menuholder.js
-    $('#bur-menu').on('click', () => {
-      $('#alt-menu').toggle();
-      $('#page').hide();
-      $('header').hide();
-      $('footer').hide();
-    });
-
-    $('#close_cross').on('click', () => {
-      $('#alt-menu').hide();
-      $('#page').toggle();
-      $('header').toggle();
-      $('footer').toggle();
-    });
-  },
-}
-</script>
 
 <style scoped lang="less">
 @import "./Styles/adaptive styles.css";
