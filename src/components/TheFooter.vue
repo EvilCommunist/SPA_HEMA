@@ -6,6 +6,7 @@ name: 'TheFooter'
 
 
 <template>
+  <!--Подвал сайта-->
     <footer class="container flex">
       <span id="copyright_bigscreen">Золотой Грифон &copy; Все права защищены</span>
       <div class="mediaholder">

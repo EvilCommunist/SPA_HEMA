@@ -43,9 +43,9 @@ mounted() {
         </div>
         <nav>
           <ul>
-            <li class="decor"><a href="#">Каталог</a></li>
-            <li class="decor"><a href="#">О нас</a></li>
-            <li class="decor"><a href="#">Как заказать?</a></li>
+            <li><a href="#" class="decor">Каталог</a></li>
+            <li><a href="#" class="decor">О нас</a></li>
+            <li><a href="#" class="decor">Как заказать?</a></li>
           </ul>
         </nav>
         <div class="cartholder">
