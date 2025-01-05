@@ -1,0 +1,9 @@
+/*Классы для многоразового использования*/
+.container{
+  width: 87.5vw; margin: 0 auto;
+  overflow: auto;
+}
+.flex {
+  display: flex; justify-content: space-between;
+  align-items: center; height: 100%;
+}
