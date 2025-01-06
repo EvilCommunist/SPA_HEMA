@@ -1,5 +1,7 @@
+<!--Домащняя страница-->
 <template>
   <main>
+    <!--Секция "приветствия"-->
     <section id="advert">
       <div class="container flex">
         <h1>Лучшее снаряжение для исторических европейских боевых искусств</h1>
@@ -12,6 +14,39 @@
         </section>
       </div>
       <img src="../components/Assets/bannerSword.png">
+    </section>
+    <!--Секция "преимущества"-->
+    <section id="advantages" class="container flex">
+      <div class="advantage">
+        <img src="./Assets/ShopCart.png">
+        <span class="advheader"><br>Широкий ассортимент</span>
+        <span class="advtext">Предложение разнообразного снаряжения, включая мечи, щиты, броню и другие аксессуары</span>
+      </div>
+      <div class="advantage">
+        <img src="./Assets/Delivery.png">
+        <span class="advheader"><br>Доставка на дом</span>
+        <span class="advtext">Удобная доставка прямо к порогу клиента, что экономит время и усилия</span>
+      </div>
+      <div class="advantage">
+        <img src="./Assets/paint.png">
+        <span class="advheader"><br>Кастомизация товаров</span>
+        <span class="advtext">Возможность заказа индивидуальных и кастомизированных предметов с учетом предпочтений клиентов</span>
+      </div>
+      <div class="advantage">
+        <img src="./Assets/expand.png">
+        <span class="advheader"><br>Точные размеры и описания</span>
+        <span class="advtext">Подробные спецификации и размеры товаров, что позволяет избежать ошибок при покупке</span>
+      </div>
+      <div class="advantage">
+        <img src="./Assets/dealHands.png">
+        <span class="advheader"><br>Поддержка культурных мероприятий</span>
+        <span class="advtext">Участие в фестивалях и турнирах, что содействует популяризации боевых искусств</span>
+      </div>
+      <div class="advantage">
+        <img src="./Assets/10yrs.png">
+        <span class="advheader"><br>Долгосрочная репутация</span>
+        <span class="advtext">Мы успешно работаем на рынке уже 10 лет, что обеспечивает доверие наших клиентов и партнеров.</span>
+      </div>
     </section>
   </main>
 </template>
