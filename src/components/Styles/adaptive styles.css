@@ -60,22 +60,24 @@ header #cart_counter{
 
 
 /*Стили для подвала сайта*/
-footer{height: 100px; margin-top: 10px;}
+footer{height: 100px; margin-top: 10px; padding-bottom: 10px;}
 footer img.media{max-height: 40px; max-width: 40px;}
 footer #copyright_bigscreen{display: flex;}
 footer #copyright_smallscreen{margin-top: 12px ; display: none;}
 footer .mediaholder{width: 174px; display: flex; justify-content: space-between;}
 
-@media screen and (max-width: 550px) {/*Адаптивное отображение при уменьшении вкладки*/
-    html {
-       -webkit-text-size-adjust: none;
-    }
+/*Адаптивное отображение при уменьшении вкладки*/
+@media screen and (max-width: 684px) {
+    header ul li{padding:0.5vw;}
+}
+@media screen and (max-width: 612px) {
     header nav{display:none;}
     header .cartholder{display:none;}
     header img.logo{max-height: 64px; max-width: 60px;}
     header #logo-name{display: none;}
     header #bur-menu{display: flex !important;}
-    
+}
+@media screen and (max-width: 550px) {
     footer.container.flex{flex-flow: column; align-items: center;}
     footer .mediaholder{width: 234px !important;}
     footer #copyright_bigscreen{display: none;}
