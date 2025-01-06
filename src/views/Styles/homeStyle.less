@@ -68,20 +68,34 @@
     object-fit: cover;
     z-index: 0;
     filter: grayscale(100%) brightness(60%);
-    max-height: 90vh;
+    max-height: 100vh; min-height: 90vh;
 }
 #advShop .container.flex{
     padding-top: 15vw;
     color: @white; z-index: 2;
     position: absolute; margin-left: 6.25vw;
     flex-flow: column;
-    height: auto; gap: 25vw;
+    height: auto; gap: 2vw;
 }
 #advShop .container.flex h1{
     font-size: @header1*1.6;
     display: block; text-align: center; 
     padding: 10px; margin: 0 auto; 
     max-width: 70%; 
+}
+.default_style{text-decoration: none;}
+#advShop .container.flex button{
+    color: @white; font-size: @sub_header;
+    font-weight: 200;
+    display: block; text-align: center; 
+    padding: 15px 60px;
+    background-color: @red;
+    border: none; border-radius: 10px;
+}
+#advShop .container.flex button:hover{
+    background-color: @red+@color_diff*2;
+    color: @white+@color_diff*2;
+    cursor: pointer;
 }
 
 /*Адаптивное отображение при уменьшении вкладки*/
@@ -108,6 +122,8 @@
 }
 @media screen and (max-width: 940px) {
     #advert .container.flex{gap:23vw;}
+    #advShop .container.flex{gap: 15vh;}
+    #advShop .container.flex h1{font-size: @header1*1.3;}
 }
 @media screen and (max-width: 860px) {
     #advert .container.flex{gap:21vw;}
@@ -159,4 +175,7 @@
         margin-left: 0.5vw; margin-right: 0.5vw;
         margin-top: 2vh; margin-bottom: 2vh;
     }
+    #advShop .container.flex{padding-top: 20vh;}
+    #advShop .container.flex h1{font-size: @header1; max-width: 95%;}
+    #advShop .container.flex button{font-size: @sub_header_small;}
 }
