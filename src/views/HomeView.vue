@@ -1,7 +1,6 @@
 <template>
   <main>
     <section id="advert">
-      <div class="darkness"></div>
       <div class="container flex">
         <h1>Лучшее снаряжение для исторических<br>европейских боевых искусств</h1>
       </div>
