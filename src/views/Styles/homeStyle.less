@@ -79,17 +79,36 @@
         font-size: @header1;
     }
     #advert .container.flex h2{font-size: @header2;}
+    #advantages .advantage .advheader{font-size: @sub_header*0.9;}
+    #advantages .advantage .advtext{font-size: @text*0.9;}
+    #advantages img{width: 80px; height: 80px;}
 }
 @media screen and (max-width: 940px) {
     #advert .container.flex{gap:23vw;}
 }
 @media screen and (max-width: 860px) {
     #advert .container.flex{gap:21vw;}
+    #advantages.container.flex{margin: 0; width: 100vw; justify-content: space-around;}
+    #advantages{
+        padding-top: 20px; padding-bottom: 20px;
+        padding-left: 10px; padding-right: 10px;
+    }
 }
 @media screen and (max-width: 770px) {
+    #advantages img{
+        width: 65px; height: 65px;
+    }
     #advert .container.flex{
         padding-top: 15vh;
         gap:30vh;
+    }
+    #advantages .advantage .advheader{
+        font-size: @sub_header_small;
+        padding: 5px; max-width: 90%;
+    }
+    #advantages .advantage .advtext{
+        font-size: @text_small;
+        padding: 5px; max-width: 90%; 
     }
 }
 @media screen and (max-width: 724px) {
@@ -109,14 +128,6 @@
         font-size: @header1_small;
     }
     #advert .container.flex h2{font-size: @header2_small;}
-    #advantages .advantage .advheader{
-        font-size: @sub_header_small;
-        padding: 5px; max-width: 90%;
-    }
-    #advantages .advantage .advtext{
-        font-size: @text_small;
-        padding: 5px; max-width: 90%; 
-    }
     #advantages img{
         width: 45px; height: 45px;
     }
@@ -124,13 +135,5 @@
         width: 40vw; height: 40vh;
         margin-left: 0.5vw; margin-right: 0.5vw;
         margin-top: 2vh; margin-bottom: 2vh;
-    }
-    #advantages.container.flex{
-        margin: 0; width: 100vw;
-        justify-content: space-around;
-    }
-    #advantages{
-        padding-top: 20px; padding-bottom: 20px;
-        padding-left: 10px; padding-right: 10px;
     }
 }
