@@ -6,6 +6,8 @@ h1, h2, h3, h4, h5, h6, .decor{font-family: 'Cormorant' !important; font-weight:
 header, nav, section, footer, article, aside{display: block;}
 ul {list-style-type: none;}
 
+/*Определение ширины блока для сменяющегося содержимого*/
+#page{width: 100vw;}
 
 /*Классы для многоразового использования*/
 .container{

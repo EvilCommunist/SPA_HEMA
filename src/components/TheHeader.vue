@@ -2,7 +2,6 @@
 export default {
 name: 'TheHeader',
 mounted() {
-    // Логика из small-size menuholder.js
     $('#bur-menu').on('click', () => {
       $('#alt-menu').toggle();
       $('#page').hide();
@@ -28,7 +27,8 @@ mounted() {
       <div id="alt-menu">
         <button id="close_cross"><img id="close_cross_img" src="./Assets/close-cross.png" alt="close"></button>
         <nav class="container flex">
-          <a href="#" class="decor">Каталог</a><br><a href="#" class="decor">О нас</a><br><a href="#" class="decor">Как заказать</a>
+          <router-link to="/store" class="decor">Каталог</router-link><br><router-link to="/" class="decor">О нас</router-link>
+          <br><router-link to="/howToOrder" class="decor">Как заказать</router-link>
           <div class="cartholder">
             <span id="cart_counter_phone">Placeholder<br><span id="price_counter_phone">Placeholder</span></span>
             <button id="cart_phone"><img src="./Assets/cart.png" alt="cart_img" id="cart_img_phone"></button>
@@ -43,9 +43,9 @@ mounted() {
         </div>
         <nav>
           <ul>
-            <li><a href="#" class="decor">Каталог</a></li>
-            <li><a href="#" class="decor">О нас</a></li>
-            <li><a href="#" class="decor">Как заказать?</a></li>
+            <li><router-link to="/store" class="decor">Каталог</router-link></li>
+            <li><router-link to="/" class="decor">О нас</router-link></li>
+            <li><router-link to="/howToOrder" class="decor">Как заказать</router-link></li>
           </ul>
         </nav>
         <div class="cartholder">
