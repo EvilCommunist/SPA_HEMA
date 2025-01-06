@@ -1,7 +1,8 @@
 <script>
 export default {
-name: 'TheHeader',
-mounted() {
+  name: 'TheHeader',
+  mounted() {
+    // Обработчик для открытия/закрытия меню
     $('#bur-menu').on('click', () => {
       $('#alt-menu').toggle();
       $('#page').hide();
@@ -9,13 +10,25 @@ mounted() {
       $('footer').hide();
     });
 
+    // Обработчик для закрытия меню при клике на close_cross
     $('#close_cross').on('click', () => {
-      $('#alt-menu').hide();
-      $('#page').toggle();
-      $('header').toggle();
-      $('footer').toggle();
+      this.closeAltMenu();
+    });
+
+    // Обработчик для закрытия меню при клике на любую из ссылок
+    $('#alt-menu').on('click', 'a', () => {
+      this.closeAltMenu();
     });
   },
+  methods: {
+    // Метод для закрытия меню и показа остальных элементов
+    closeAltMenu() {
+      $('#alt-menu').hide();
+      $('#page').show();
+      $('header').show();
+      $('footer').show();
+    }
+  }
 }
 </script>
 
