@@ -61,6 +61,29 @@
     max-width: 80%; 
 }
 
+/*Стили для секции с предложением покупки*/
+#advShop{overflow: hidden !important; position: relative;}
+#advShop img{
+    width: 100vw;
+    object-fit: cover;
+    z-index: 0;
+    filter: grayscale(100%) brightness(60%);
+    max-height: 90vh;
+}
+#advShop .container.flex{
+    padding-top: 15vw;
+    color: @white; z-index: 2;
+    position: absolute; margin-left: 6.25vw;
+    flex-flow: column;
+    height: auto; gap: 25vw;
+}
+#advShop .container.flex h1{
+    font-size: @header1*1.6;
+    display: block; text-align: center; 
+    padding: 10px; margin: 0 auto; 
+    max-width: 70%; 
+}
+
 /*Адаптивное отображение при уменьшении вкладки*/
 @media screen and (max-width: 1440px) {
     #advert .container.flex h1{

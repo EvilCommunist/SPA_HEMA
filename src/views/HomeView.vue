@@ -48,6 +48,13 @@
         <span class="advtext">Мы успешно работаем на рынке уже 10 лет, что обеспечивает доверие наших клиентов и партнеров.</span>
       </div>
     </section>
+    <!--Секция с предложением совершить покупку-->
+    <section id="advShop">
+      <div class="container flex">
+        <h1>Приобретайте качественную экипировку по приятным ценам!</h1>
+      </div>
+      <img src="../components/Assets/swordsman.png">
+    </section>
   </main>
 </template>
 
