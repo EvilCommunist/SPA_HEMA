@@ -50,7 +50,17 @@
         "remain": 2,
         "main_pic":"./imagesOfGoods/Russian_set_main.jpg",
         "alt_pics":["", "", ""]
+      },
+      {
+        "id": 6,
+        "cathegory": "Европейские комплекты",
+        "name": "Снаряжение госпитальера периода XII-XIII века",
+        "description":"Полный комплект доспехов госпитальера периода середирны XII - начала XIII века (комплект включает в себя пошитую надоспешную одежду)",
+        "price": 115000,
+        "remain": 5,
+        "main_pic":"./imagesOfGoods/Hospitalier_set_main.jpg",
+        "alt_pics":["", "", ""]
       }
     ],
-    "total": 5
+    "total": 6
   }
