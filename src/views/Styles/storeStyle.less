@@ -1,19 +1,29 @@
 @import "../../assets/vars.less";
 
+/*Стили для каталога*/
 #store{
     border-top-style: solid; border-bottom-style: solid;
     border-width: 1px; border-color: @gray+@color_diff;
     box-shadow: inset 0 1px 3px @gray, inset 0 -1px 3px @gray+@color_diff;
     padding-top: 20px; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;
-    position: relative;
+    position: relative; color: @dark; font-size: @text; line-height: 24px;
 }
+
+#store #menu{
+    border-style: solid; border-width: 1px; 
+    border-color: @gray+@color_diff; padding: 15px 10px;
+    border-radius: 5px; width: 15vw;
+}
+#store #menu hr{border: solid; border-color: @light_gray; border-width: 1px;}
+#store #menu #nameSection{font-size: @sub_header;}
+#store #menu #sub_section{color: @gray; font-size: @small_text;}
 /*Стили бокового декоративного названия секций*/
-.vertical-text {
+#store .vertical-text {
     position: absolute; writing-mode: vertical-lr; 
     white-space: nowrap;  
     font-size: @header1*2;
     color: @light_gray;
     padding-top: 10px; padding-bottom: 10px;
 }
-.vertical-text.top {top: 0; left:15px; transform: rotate(-360deg);}
-.vertical-text.bottom {bottom: 0; right:15px; transform: rotate(180deg);}
+#store .vertical-text.top {top: 0; left:15px; transform: rotate(-360deg);}
+#store .vertical-text.bottom {bottom: 0; right:15px; transform: rotate(180deg);}
