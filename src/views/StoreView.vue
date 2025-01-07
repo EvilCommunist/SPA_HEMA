@@ -88,14 +88,17 @@ export default {
             </li>
           </ul>
         </aside>
-        <section id="catalog">
+        <section>
           <div v-if="loading">Загрузка...</div>
-          <div v-else>
+          <div v-else id="catalog">
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" />
-              <h3>{{ product.name }}</h3>
-              <p>Цена: {{ product.price }} руб.</p>
+              <p>{{ product.name }}</p>
+              <span class="descript">{{ product.description }}</span>
+              <div class="prod_bottom">
+              Цена: {{ product.price }} руб.
               <button @click="addToCart(product)">В корзину</button>
+              </div>
             </div>
           </div>
         </section>
