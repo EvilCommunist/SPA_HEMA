@@ -1,0 +1,31 @@
+/*Стили для руководства по заказу*/
+@import "./../../assets/vars.less";
+
+#howTo.container.flex{
+    flex-flow: column; text-align: justify; gap:1vh;
+    background-color: @light_gray+@color_diff;
+    color:@dark; border-radius: 10px;
+    padding: 25px; box-sizing: border-box;
+}
+#howTo .decor{color: @golden;}
+#howTo h1{font-size: @header1; display: block; text-align: center; }
+#howTo #pre{font-size: @sub_header; text-align: center;}
+#howTo h2{font-size: @header2;}
+#howTo p{font-size: @text;}
+#howTo ul li{
+    font-size: @text;
+    list-style-image: url(../Assets/yoyonpujinoSWORD.png);
+}
+#howTo ul li::marker {
+    width: 10px; 
+    height: 10px; 
+  }
+
+@media screen and (max-width: 550px) {
+    #howTo.container.flex{margin:0; width: 100vw;}
+    #howTo h1{font-size: @header1_small;}
+    #howTo #pre{font-size: @sub_header_small;}
+    #howTo h2{font-size: @header2_small;}
+    #howTo p{font-size: @text_small;}
+    #howTo ul li{font-size: @text_small;}
+}
