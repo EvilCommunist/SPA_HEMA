@@ -1,4 +1,5 @@
 @import "../../assets/vars.less";
+@import "../../assets/elements.less";
 
 /*Стили для секции "рекламы" (приветствия)*/
 #adver{overflow: hidden !important; position: relative;}
@@ -84,12 +85,7 @@
     max-width: 70%; 
 }
 #advShop .container.flex button{
-    color: @white; font-size: @sub_header;
-    font-weight: 200;
-    display: block; text-align: center; 
-    padding: 15px 60px;
-    background-color: @red;
-    border: none; border-radius: 10px;
+    .button(@red, @text, 60px, 15px);
 }
 #advShop .container.flex button:hover{
     background-color: @red+@color_diff*2;
