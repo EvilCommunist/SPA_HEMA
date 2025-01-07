@@ -5,6 +5,8 @@ export default {
     return {
       products: [],
       category: '',
+      leftText: 'Каталог', 
+      rightText: 'Каталог',
       loading: true,
     };
   },
@@ -17,6 +19,9 @@ export default {
   methods: {
     setCategory(category) {
       this.category = category;
+      const displayText = category.includes('комплекты') ? category.replace('комплекты', '').trim() : category;
+      this.leftText = displayText;
+      this.rightText = displayText;
     },
     addToCart(product) {// Добавление в корзину
       
@@ -44,8 +49,8 @@ export default {
 <template>
   <main>
     <section id="store">
-      <div class="vertical-text top decor">Лево</div>
-      <div class="vertical-text bottom decor">Право</div>
+      <div class="vertical-text top decor">{{ leftText }}</div>
+      <div class="vertical-text bottom decor">{{ rightText }}</div>
       <div class="container flex">
         <aside id="menu">
           <span id="nameSection">Каталог</span>

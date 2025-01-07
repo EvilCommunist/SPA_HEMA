@@ -7,16 +7,16 @@
         "name": "Романский меч",
         "price": 12000,
         "remain": 25,
-        "main_pic":"",
+        "main_pic":"./imagesOfGoods/kvetun_romanian_main.jpg",
         "alt_pics":["", "", ""]
       },
       {
         "id": 2,
         "cathegory": "Режущее оружие",
-        "name": "Каролинг тип X",
+        "name": "Каролинг тип V",
         "price": 13000,
         "remain": 19,
-        "main_pic":"",
+        "main_pic":"./imagesOfGoods/kvetun_caroling_main.jpg",
         "alt_pics":["", "", ""]
       },
       {
@@ -25,7 +25,7 @@
         "name": "Викторианская офицерская шпага",
         "price": 20000,
         "remain": 10,
-        "main_pic":"",
+        "main_pic":"./imagesOfGoods/kvetun_oficer_rapier_main.jpg",
         "alt_pics":["", "", ""]
       },
       {
