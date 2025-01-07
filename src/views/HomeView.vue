@@ -52,7 +52,7 @@
     <section id="advShop">
       <div class="container flex">
         <h1>Приобретайте качественную экипировку по приятным ценам!</h1>
-        <router-link to="/store" class="default_style"><button>Перейти в каталог</button></router-link>
+        <router-link to="/store"><button>Перейти в каталог</button></router-link>
       </div>
       <img src="../components/Assets/swordsman.png">
     </section>
