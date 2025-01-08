@@ -1,0 +1,109 @@
+@import "../../assets/vars.less";
+@import "../../assets/elements.less";
+
+/*Стили для каталога*/
+#store{
+    border-top-style: solid; border-bottom-style: solid;
+    border-width: 1px; border-color: @gray+@color_diff;
+    box-shadow: inset 0 1px 3px @gray, inset 0 -1px 3px @gray+@color_diff;
+    padding-top: 20px; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;
+    position: relative; color: @dark; font-size: @text; line-height: 24px;
+    min-height: 70vh;
+}
+
+/*Стили для бокового меню*/
+#store #menu{
+    border-style: solid; border-width: 1px; 
+    border-color: @gray+@color_diff; padding: 15px 10px;
+    border-radius: 5px; width: 15vw;
+    position: absolute; top: 0; margin-top: 20px;
+}
+#store #menu a{color: @dark;}
+#store #menu a:active{color: @golden;}
+#store #menu hr{border: solid; border-color: @light_gray; border-width: 1px;}
+#store #menu #nameSection{font-size: @sub_header; cursor: pointer;}
+#store #menu #sub_section{color: @gray; font-size: @small_text;}
+
+/*Стили бокового декоративного названия секций*/
+#store .vertical-text {
+    position: absolute; writing-mode: vertical-lr; 
+    white-space: nowrap;  
+    font-size: @header1*2;
+    color: @light_gray;
+    padding-top: 10px; padding-bottom: 10px;
+}
+#store .vertical-text.top {top: 0; left:15px; transform: rotate(-360deg); margin-left: 20px;}
+#store .vertical-text.bottom {bottom: 0; right:15px; transform: rotate(180deg); margin-right: 20px;}
+
+/*Стили для каталога*/
+#store #catalog {
+    width: 65vw; min-height: 70vh;
+    display: flex; flex-wrap: wrap;
+    gap: 20px; justify-content: flex-start;
+    box-sizing: border-box; margin-left: 20vw;
+}
+#store #catalog #current_section{width: inherit; position: relative;}
+#store #catalog #cur{color: @dark; font-size: @header1;}
+#store #catalog #cur_sub{color: @gray; font-size: @sub_header;}
+#store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover; min-width: 200px; min-height: 100px;}
+#store #catalog .product{
+    border-width: 1px; border-style: solid; border-color: @light_gray;
+    width: 15vw; border-radius: 10px; display: flex; flex-flow: column;  
+    height: 23vw; text-align: center; min-width: 200px;
+    min-height: 300px;
+}
+#store #catalog .product p{
+    margin-left: 5px; margin-right: 5px; 
+    text-align: justify;
+}
+#store #catalog .product .descript{
+    font-size: @small_text; color: @gray;
+    display: block; line-height: normal;
+    margin-left: 5px; margin-right: 5px;
+    text-align: justify;
+}
+#store #catalog .product button{ 
+    .button(@red, @small_text, 5.3vw, 10px);
+    display: flex; justify-content: center; 
+    align-items: center; margin: 5px auto; 
+}
+#store #catalog .prod_bottom{margin-top: auto;}
+
+/*Стили выпадающего меню*/
+#store #catalog #current_section .dropdown-menu{
+    background-color: fade(@light_gray, 80%); position: absolute;
+    padding: 10px;border-radius: 10px;
+}
+#store #catalog #current_section .dropdown-menu a{
+    color: @dark; font-size: @text_small;
+}
+#store #catalog #current_section .dropdown-menu .sub_section{
+    color: @gray - @color_diff; font-size: @small_text_small;
+}
+
+/*Адаптивное отображение при уменьшении вкладки*/
+@media screen and (max-width: 1440px) {
+    #store #catalog .product .descript{font-size: @small_text_small;}
+    #store #catalog .product p{font-size: @text_small;}
+    #store #catalog .product .prod_bottom{font-size: @text_small;}
+}
+@media screen and (max-width: 1000px) {
+    #store .vertical-text.top{display:none;}
+}
+@media screen and (max-width: 770px) {
+    #store #catalog #cur{font-size: @header1_small;}
+    #store #catalog #cur_sub{font-size: @sub_header_small;}
+    #store #menu{display: none;}
+    #store #catalog{margin-left: 10px;}
+}
+@media screen and (max-width: 652px) {
+    #store .container.flex{
+        width: 100vw !important; margin: 0;
+    }
+    #store #catalog{width: 100vw;}
+}
+@media screen and (max-width: 550px) {
+    #store{padding-left: 0; padding-right: 0;}
+    #store #catalog{margin-left: 5px;}
+    #store .vertical-text.bottom{display:none;}
+}

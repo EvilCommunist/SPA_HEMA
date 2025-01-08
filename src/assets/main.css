@@ -1,0 +1,22 @@
+*{/*Объявление общих стилей*/
+  margin: 0; padding: 0;
+  font-family: 'Tahoma';
+}
+html, body{overflow-x: hidden;}
+h1, h2, h3, h4, h5, h6, .decor{font-family: 'Cormorant' !important; font-weight: normal;}
+header, nav, section, footer, article, aside{display: block;}
+ul {list-style-type: none;}
+a{text-decoration: none;}
+
+/*Определение ширины блока для сменяющегося содержимого*/
+#page{width: 100vw; padding-top: 10px; padding-bottom: 10px; box-sizing: border-box;}
+
+/*Классы для многоразового использования*/
+.container{
+  width: 87.5vw; margin: 0 auto;
+  overflow: auto;
+}
+.flex {
+  display: flex; justify-content: space-between;
+  align-items: center; height: 100%;
+}
