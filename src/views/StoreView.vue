@@ -50,7 +50,17 @@ export default {
       
     },
     openProduct(product) {
-      this.$router.push({ name: 'ProdCard', params: { id: product.id } });
+      this.$router.push({
+      name: 'ProdCard',
+      params: {
+        id: product.id,
+        category: product.cathegory,
+        productName: product.name,
+      },
+      query: {
+        category: product.cathegory,
+      },
+    });
     },
     async fetchProducts() { // Загрузка товаров с файла
       try {
@@ -63,6 +73,13 @@ export default {
         this.loading = false;
       }
     },
+  },
+  async created() {
+    await this.fetchProducts();
+    const category = this.$route.query.category;
+    if (category) {
+      this.setCategory(category);
+    }
   },
   mounted() {
     this.fetchProducts();
@@ -77,7 +94,7 @@ export default {
 
 <template>
   <main>
-    <section id="store">
+    <section class="store">
       <div class="vertical-text top decor">{{ leftText }}</div>
       <div class="vertical-text bottom decor">{{ rightText }}</div>
       <div class="container flex">
