@@ -69,6 +69,29 @@ export default {
       },
     });
     },
+    increaseQuantity(product) {
+        product.remain += 1;
+        this.updateProductInJson(product);
+    },
+    decreaseQuantity(product) {
+        if (product.remain > 0) {
+        product.remain -= 1;
+        this.updateProductInJson(product);
+        }
+    },
+    async updateProductInJson(product) {
+        try {
+        const response = await fetch('/goods.json');
+        const data = await response.json();
+        const updatedInventory = data.inventory.map((p) =>
+            p.id === product.id ? { ...p, remain: product.remain } : p
+        );
+        data.inventory = updatedInventory;
+        console.log('Товар обновлен:', product);
+        } catch (error) {
+        console.error('Ошибка при обновлении товара:', error);
+        }
+    },
     async fetchProducts() { // Загрузка товаров с файла
       try {
         const response = await fetch('/goods.json');
@@ -82,8 +105,6 @@ export default {
     },
   },
   async created() {
-    console.log('Пароль из .env:', this.correctPassword);
-    console.log('Пароль из ссылки:', this.password);
     await this.fetchProducts();
     const category = this.$route.query.category;
     if (category) {
@@ -200,7 +221,9 @@ export default {
               <p>{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
-                <button class="plus">+</button>На складе: {{ product.remain }} шт.<button class="minus">-</button>
+                <button class="plus" @click="increaseQuantity(product)">+</button>
+                На складе: {{ product.remain }} шт.
+                <button class="minus" @click="decreaseQuantity(product)">-</button>
               </div>
             </div>
           </div>
