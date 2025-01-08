@@ -49,11 +49,13 @@ export default {
     addToCart(product) {// Добавление в корзину
       
     },
+    openProduct(product) {
+      this.$router.push({ name: 'ProdCard', params: { id: product.id } });
+    },
     async fetchProducts() { // Загрузка товаров с файла
       try {
         const response = await fetch('./goods.json');
         const data = await response.json();
-        console.log(data);
         this.products = data.inventory;
       } catch (error) {
         console.error('Ошибка при загрузке товаров:', error);
@@ -156,7 +158,7 @@ export default {
               </div>
             </section>
             <div v-for="product in filteredProducts" :key="product.id" class="product">
-              <img :src="product.main_pic" :alt="product.name" />
+              <img :src="product.main_pic" :alt="product.name" @click="openProduct(product)" />
               <p>{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
