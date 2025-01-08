@@ -73,6 +73,7 @@ export default {
       <div class="vertical-text bottom decor">{{ product.cathegory }}</div>
       <div class="container flex">
         <!-- Блоки с иерархией нахождения товара -->
+      <section id="product_view">
         <section class="current_section">
           <span class="cur">
             {{ product.name }}
@@ -81,19 +82,21 @@ export default {
             Каталог > {{ product.cathegory }} > {{ product.name }}
           </span>
         </section>
-        <div>
           <div class="slider">
             <img :src="currentImage" :alt="product.name" />
             <button @click="prevImage" class="slider-button prev">‹</button>
             <button @click="nextImage" class="slider-button next">›</button>
           </div>
-          <span id="prod_name">{{ product.name }}</span>
-          <p>{{ product.description }}</p>
+      </section>
+      <section id="character_and_cart">
+        <section id="character">
+          <span>Характеристики</span>
           <ul>
             <li v-for="(char, index) in product.characteristics" :key="index">{{ char }}</li>
           </ul>
-          <button @click="addToCart">В корзину</button>
-        </div>
+        </section>
+        <button @click="addToCart">В корзину</button>
+      </section>
       </div>
     </div>
     <div v-else-if="loading">
