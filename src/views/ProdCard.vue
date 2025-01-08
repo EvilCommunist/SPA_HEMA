@@ -25,6 +25,10 @@ export default {
     if (!this.product) return ''; // Возвращаем пустую строку, если product не загружен
     return this.allImages[this.currentImageIndex];
   },
+  displayCategory() {
+    if (!this.product) return '';
+    return this.product.cathegory.replace('комплекты', '').trim();
+  },
   },
   methods: {
     async fetchProduct() {
@@ -87,8 +91,8 @@ export default {
   <div class="store">
     <!-- Проверка на наличие product -->
     <div v-if="product">
-      <div class="vertical-text top decor">{{ product.cathegory }}</div>
-      <div class="vertical-text bottom decor">{{ product.cathegory }}</div>
+      <div class="vertical-text top decor">{{ displayCategory }}</div>
+      <div class="vertical-text bottom decor">{{ displayCategory }}</div>
       <div class="container flex">
         <!-- Блоки с иерархией нахождения товара и слайдером -->
       <section id="product_view">
