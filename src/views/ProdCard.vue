@@ -13,6 +13,7 @@ export default {
       loading: true,
       error: null,
       currentImageIndex: 0,
+      autoSlideInterval: null,
     };
   },
   computed: {
@@ -57,9 +58,26 @@ export default {
     addToCart() {
       // Реализация с корзиной
     },
+    startAutoSlide() {
+      this.autoSlideInterval = setInterval(() => {
+        this.nextImage();
+      }, 3000); 
+    },
+    stopAutoSlide() {
+      if (this.autoSlideInterval) {
+        clearInterval(this.autoSlideInterval);
+        this.autoSlideInterval = null;
+      }
+    },
   },
   created() {
     this.fetchProduct();
+  },
+  mounted() {
+    this.startAutoSlide(); 
+  },
+  beforeUnmount() {
+    this.stopAutoSlide(); 
   },
 };
 </script>
@@ -72,7 +90,7 @@ export default {
       <div class="vertical-text top decor">{{ product.cathegory }}</div>
       <div class="vertical-text bottom decor">{{ product.cathegory }}</div>
       <div class="container flex">
-        <!-- Блоки с иерархией нахождения товара -->
+        <!-- Блоки с иерархией нахождения товара и слайдером -->
       <section id="product_view">
         <section class="current_section">
           <span class="cur">
@@ -82,17 +100,31 @@ export default {
             Каталог > {{ product.cathegory }} > {{ product.name }}
           </span>
         </section>
-          <div class="slider">
+        <div class="slider">
+          <!-- Основное изображение -->
+          <div class="main-image">
             <img :src="currentImage" :alt="product.name" />
-            <button @click="prevImage" class="slider-button prev">‹</button>
-            <button @click="nextImage" class="slider-button next">›</button>
           </div>
+          <!-- Миниатюры -->
+          <div class="thumbnails">
+            <div
+              v-for="(image, index) in allImages"
+              :key="index"
+              class="thumbnail"
+              :class="{ active: currentImageIndex === index }"
+              @click="changeImage(index)"
+            >
+              <img :src="image" :alt="`Thumbnail ${index + 1}`" />
+            </div>
+          </div>
+        </div>
       </section>
+      <!-- Блоки с характеристиками и кнопкой добавления в корзину -->
       <section id="character_and_cart">
         <section id="character">
-          <span>Характеристики</span>
+          <span id="cha">Характеристики</span>
           <ul>
-            <li v-for="(char, index) in product.characteristics" :key="index">{{ char }}</li>
+            <li v-for="(char, index) in product.characteristics" :key="index"><span class="marker">></span> {{ char }}</li>
           </ul>
         </section>
         <button @click="addToCart">В корзину</button>

@@ -1,10 +1,51 @@
 @import "../../assets/vars.less";
 @import "../../assets/vars.less";
 
-.store #product_view img{max-width: 35vw; border-radius: 10px;}
+/*Стили для карточки товара*/
 .store #product_view {width: 40vw;}
-.store #character_and_cart button {.button(@red, @text, 15vw, 5px); border-radius: 5px;}
+.store #character_and_cart button {.button(@red, @text*1.1, 15vw, 10px); border-radius: 5px;}
 .store #character_and_cart {
     width: 45vw; display: flex;
     flex-flow:column; gap: 30vh;
+    color: @dark; font-size: @text; 
+    #character{
+        padding-left: 1vw;
+        #cha{font-size: @sub_header;}
+        .marker{color: @gray;}
+    };
+}
+
+
+/*Стили слайдера*/
+.slider {
+    margin-top: 2vh;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 10px;
+}
+.main-image{
+    width: 40vw; height: 60vh;
+    display: flex; justify-content: center;
+}
+.main-image img {
+    max-width: 40vw; height: auto;
+    max-height: 60vh;
+    border-radius: 10px;
+}
+.thumbnails {
+    display: flex; gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.thumbnail {
+    width: 60px; height: 60px;
+    border: @border-width solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+.thumbnail.active {border-color: @gray;}
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
