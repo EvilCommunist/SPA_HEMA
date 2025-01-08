@@ -36,7 +36,7 @@
 
 /*Стили для каталога*/
 #store #catalog {
-    width: 60vw; min-height: 70vh;
+    width: 65vw; min-height: 70vh;
     display: flex; flex-wrap: wrap;
     gap: 20px; justify-content: flex-start;
     box-sizing: border-box; margin-left: 20vw;
@@ -44,11 +44,12 @@
 #store #catalog #current_section{width: inherit;}
 #store #catalog #cur{color: @dark; font-size: @header1;}
 #store #catalog #cur_sub{color: @gray; font-size: @sub_header;}
-#store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover;}
+#store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover; min-width: 200px; min-height: 100px;}
 #store #catalog .product{
     border-width: 1px; border-style: solid; border-color: @light_gray;
     width: 15vw; border-radius: 10px; display: flex; flex-flow: column;  
-    height: 23vw; text-align: center;
+    height: 23vw; text-align: center; min-width: 200px;
+    min-height: 300px;
 }
 #store #catalog .product p{
     margin-left: 5px; margin-right: 5px; 
@@ -68,5 +69,27 @@
 #store #catalog .prod_bottom{margin-top: auto;}
 
 @media screen and (max-width: 1440px) {
-    #store #catalog .product .descript{display: none;}
+    #store #catalog .product .descript{font-size: @small_text_small;}
+    #store #catalog .product p{font-size: @text_small;}
+    #store #catalog .product .prod_bottom{font-size: @text_small;}
+}
+@media screen and (max-width: 1000px) {
+    #store .vertical-text.top{display:none;}
+}
+@media screen and (max-width: 770px) {
+    #store #catalog #cur{font-size: @header1_small;}
+    #store #catalog #cur_sub{font-size: @sub_header_small;}
+    #store #menu{display: none;}
+    #store #catalog{margin-left: 10px;}
+}
+@media screen and (max-width: 652px) {
+    #store .container.flex{
+        width: 100vw !important; margin: 0;
+    }
+    #store #catalog{width: 100vw;}
+}
+@media screen and (max-width: 550px) {
+    #store{padding-left: 0; padding-right: 0;}
+    #store #catalog{margin-left: 5px;}
+    #store .vertical-text.bottom{display:none;}
 }
