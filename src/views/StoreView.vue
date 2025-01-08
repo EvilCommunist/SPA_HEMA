@@ -10,6 +10,8 @@ export default {
       loading: true,
       currentSection: 'Все товары', 
       currentSubSection: 'Каталог',
+      isMenuVisible: false, 
+      isMobile: window.innerWidth < 600,
     };
   },
   computed: {
@@ -26,6 +28,7 @@ export default {
       this.rightText = displayText;
       this.currentSection = category;
       this.currentSubSection = `Каталог > ${category}`;
+      this.isMenuVisible = false;
     },
     resetCategory() {
       this.category = '';
@@ -33,6 +36,14 @@ export default {
       this.rightText = 'Каталог';
       this.currentSection = 'Все товары';
       this.currentSubSection = 'Каталог';
+    },
+    toggleMenu() {
+      if (this.isMobile) { 
+        this.isMenuVisible = !this.isMenuVisible;
+      }
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth < 600;
     },
     addToCart(product) {// Добавление в корзину
       
@@ -52,6 +63,10 @@ export default {
   },
   mounted() {
     this.fetchProducts();
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
   },
 };
 </script>
@@ -104,15 +119,48 @@ export default {
           <div v-else id="catalog">
             <section id="current_section">
               <span id="cur">{{ currentSection }}</span><br>
-              <span id="cur_sub">{{ currentSubSection }}</span>
+              <span id="cur_sub" @click="toggleMenu">{{ currentSubSection }}</span>
+              <div v-if="isMenuVisible && isMobile" class="dropdown-menu">
+                <ul>
+                  <li><a href="#" @click.prevent="resetCategory">Весь ассортимент</a></li>
+                  <li>
+                    <span class="sub_section">Защита</span>
+                    <ul>
+                      <li><a href="#" @click.prevent="setCategory('Защита головы')">Защита головы</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Защита тела')">Защита тела</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Защита рук')">Защита рук</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Защита ног')">Защита ног</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="sub_section">Оружие</span>
+                    <ul>
+                      <li><a href="#" @click.prevent="setCategory('Древковое')">Древковое</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Колющее')">Колющее</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Режущее оружие')">Режущее оружие</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Луки')">Луки</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Тренировочное')">Тренировочное</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="sub_section">Комплекты</span>
+                    <ul>
+                      <li><a href="#" @click.prevent="setCategory('Русские комплекты')">Русские комплекты</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Азиатские комплекты')">Азиатские комплекты</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Европейские комплекты')">Европейские комплекты</a></li>
+                      <li><a href="#" @click.prevent="setCategory('Арабские комплекты')">Арабские комплекты</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </section>
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" />
               <p>{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
-              Цена: {{ product.price }} руб.
-              <button @click="addToCart(product)">В корзину</button>
+                Цена: {{ product.price }} руб.
+                <button @click="addToCart(product)">В корзину</button>
               </div>
             </div>
           </div>
