@@ -36,6 +36,7 @@ export default {
       this.rightText = 'Каталог';
       this.currentSection = 'Все товары';
       this.currentSubSection = 'Каталог';
+      this.isMenuVisible = false;
     },
     toggleMenu() {
       if (this.isMobile) { 
