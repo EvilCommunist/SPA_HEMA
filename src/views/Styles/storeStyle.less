@@ -8,15 +8,20 @@
     box-shadow: inset 0 1px 3px @gray, inset 0 -1px 3px @gray+@color_diff;
     padding-top: 20px; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;
     position: relative; color: @dark; font-size: @text; line-height: 24px;
+    min-height: 70vh;
 }
+
+/*Стили для бокового меню*/
 #store #menu{
     border-style: solid; border-width: 1px; 
     border-color: @gray+@color_diff; padding: 15px 10px;
     border-radius: 5px; width: 15vw;
+    position: absolute; top: 0; margin-top: 20px;
 }
 #store #menu a{color: @dark;}
+#store #menu a:active{color: @golden;}
 #store #menu hr{border: solid; border-color: @light_gray; border-width: 1px;}
-#store #menu #nameSection{font-size: @sub_header;}
+#store #menu #nameSection{font-size: @sub_header; cursor: pointer;}
 #store #menu #sub_section{color: @gray; font-size: @small_text;}
 /*Стили бокового декоративного названия секций*/
 #store .vertical-text {
@@ -31,11 +36,14 @@
 
 /*Стили для каталога*/
 #store #catalog {
-    width: 60vw;
+    width: 60vw; min-height: 70vh;
     display: flex; flex-wrap: wrap;
     gap: 20px; justify-content: flex-start;
-    box-sizing: border-box;
+    box-sizing: border-box; margin-left: 20vw;
 }
+#store #catalog #current_section{width: inherit;}
+#store #catalog #cur{color: @dark; font-size: @header1;}
+#store #catalog #cur_sub{color: @gray; font-size: @sub_header;}
 #store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover;}
 #store #catalog .product{
     border-width: 1px; border-style: solid; border-color: @light_gray;
@@ -58,3 +66,7 @@
     align-items: center; margin: 5px auto; 
 }
 #store #catalog .prod_bottom{margin-top: auto;}
+
+@media screen and (max-width: 1440px) {
+    #store #catalog .product .descript{display: none;}
+}

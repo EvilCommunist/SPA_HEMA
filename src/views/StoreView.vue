@@ -8,6 +8,8 @@ export default {
       leftText: 'Каталог', 
       rightText: 'Каталог',
       loading: true,
+      currentSection: 'Все товары', 
+      currentSubSection: 'Каталог',
     };
   },
   computed: {
@@ -22,6 +24,15 @@ export default {
       const displayText = category.includes('комплекты') ? category.replace('комплекты', '').trim() : category;
       this.leftText = displayText;
       this.rightText = displayText;
+      this.currentSection = category;
+      this.currentSubSection = `Каталог > ${category}`;
+    },
+    resetCategory() {
+      this.category = '';
+      this.leftText = 'Каталог';
+      this.rightText = 'Каталог';
+      this.currentSection = 'Все товары';
+      this.currentSubSection = 'Каталог';
     },
     addToCart(product) {// Добавление в корзину
       
@@ -53,7 +64,7 @@ export default {
       <div class="vertical-text bottom decor">{{ rightText }}</div>
       <div class="container flex">
         <aside id="menu">
-          <span id="nameSection">Каталог</span>
+          <span id="nameSection" @click.prevent="resetCategory">Каталог</span>
           <hr>
           <ul>
             <li>
@@ -91,6 +102,10 @@ export default {
         <section>
           <div v-if="loading">Загрузка...</div>
           <div v-else id="catalog">
+            <section id="current_section">
+              <span id="cur">{{ currentSection }}</span><br>
+              <span id="cur_sub">{{ currentSubSection }}</span>
+            </section>
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" />
               <p>{{ product.name }}</p>
