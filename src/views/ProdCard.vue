@@ -4,15 +4,7 @@ export default {
   name: 'ProdCard',
   props: {
     id: {
-      type: String, // Или Number, если id — число
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-    },
-    productName: {
-      type: String,
+      type: String, 
       required: true,
     },
   },
@@ -25,11 +17,9 @@ export default {
     };
   },
   computed: {
-    // Все изображения для слайдера (основное + альтернативные)
     allImages() {
       return [this.product.main_pic, ...this.product.alt_pics.filter((img) => img)];
     },
-    // Текущее изображение для слайдера
     currentImage() {
       return this.allImages[this.currentImageIndex];
     },
@@ -45,19 +35,17 @@ export default {
     addToCart() {
       this.$emit('add-to-cart', this.product);
     },
+    goBack() {
+      this.$router.push({ path: '/catalog', query: { category: this.product.cathegory } });
+    },
     goBackToCategory() {
-      // Возврат к категории
-      this.$router.push({ path: '/', query: { category: this.category } });
+      this.$router.push({ path: '/catalog', query: { category: this.product.cathegory } });
     },
     async fetchProduct() {
       try {
-        // Загружаем данные из goods.json
-        const response = await fetch('/goods.json'); // Убедитесь, что путь к файлу правильный
+        const response = await fetch('/goods.json');
         const data = await response.json();
-
-        // Ищем товар по id
-        const product = data.inventory.find((p) => p.id === parseInt(this.id));
-
+        const product = data.inventory.find((p) => p.id === parseInt(this.id)); // Поиск товара по идентификатору
         if (product) {
           this.product = product;
         } else {
@@ -81,16 +69,18 @@ export default {
 <template>
   <!--Вид карточки товара-->
   <div class="store">
-    <div class="vertical-text top decor">Placeholder</div>
-    <div class="vertical-text bottom decor">Placeholder</div>
+    <div class="vertical-text top decor">{{product.cathegory}}</div>
+    <div class="vertical-text bottom decor">{{product.cathegory}}</div>
     <div class="container flex">
       <!--Блоки с иерархией нахождения товара-->
-      <span id="cur">
-        {{ productName }}
-      </span>
-      <span id="cur_sub">
-        Каталог > {{ category }} > {{ productName }}
-      </span>
+      <section  class="current_section">
+        <span class="cur">
+          {{ product.name }}
+        </span>
+        <span class="cur_sub">
+          Каталог > {{ product.cathegory }} > {{ product.name }}
+        </span>
+    </section>
       <div v-if="product">
         <div class="slider">
           <img :src="currentImage" :alt="product.name" />

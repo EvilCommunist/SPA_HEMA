@@ -54,11 +54,6 @@ export default {
       name: 'ProdCard',
       params: {
         id: product.id,
-        category: product.cathegory,
-        productName: product.name,
-      },
-      query: {
-        category: product.cathegory,
       },
     });
     },
@@ -137,9 +132,9 @@ export default {
         <section>
           <div v-if="loading">Загрузка...</div>
           <div v-else id="catalog">
-            <section id="current_section">
-              <span id="cur">{{ currentSection }}</span><br>
-              <span id="cur_sub" @click="toggleMenu">{{ currentSubSection }}</span>
+            <section class="current_section">
+              <span class="cur">{{ currentSection }}</span><br>
+              <span class="cur_sub" @click="toggleMenu">{{ currentSubSection }}</span>
               <div v-if="isMenuVisible && isMobile" class="dropdown-menu">
                 <ul>
                   <li><a href="#" @click.prevent="resetCategory">Весь ассортимент</a></li>

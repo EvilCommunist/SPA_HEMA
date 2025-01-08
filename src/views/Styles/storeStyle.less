@@ -42,9 +42,9 @@
     gap: 20px; justify-content: flex-start;
     box-sizing: border-box; margin-left: 20vw;
 }
-.store #catalog #current_section{width: inherit; position: relative;}
-.store #catalog #cur{color: @dark; font-size: @header1;}
-.store #catalog #cur_sub{color: @gray; font-size: @sub_header;}
+.store .current_section{width: inherit; position: relative;}
+.store .current_section .cur{color: @dark; font-size: @header1;}
+.store .current_section .cur_sub{color: @gray; font-size: @sub_header;}
 .store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover; min-width: 200px; min-height: 100px;}
 .store #catalog .product{
     border-width: 1px; border-style: solid; border-color: @light_gray;
@@ -70,14 +70,14 @@
 .store #catalog .prod_bottom{margin-top: auto;}
 
 /*Стили выпадающего меню*/
-.store #catalog #current_section .dropdown-menu{
+.store #catalog .current_section .dropdown-menu{
     background-color: fade(@light_gray, 80%); position: absolute;
     padding: 10px;border-radius: 10px;
 }
-.store #catalog #current_section .dropdown-menu a{
+.store #catalog .current_section .dropdown-menu a{
     color: @dark; font-size: @text_small;
 }
-.store #catalog #current_section .dropdown-menu .sub_section{
+.store #catalog .current_section .dropdown-menu .sub_section{
     color: @gray - @color_diff; font-size: @small_text_small;
 }
 
@@ -91,8 +91,8 @@
     .store .vertical-text.top{display:none;}
 }
 @media screen and (max-width: 770px) {
-    .store #catalog #cur{font-size: @header1_small;}
-    .store #catalog #cur_sub{font-size: @sub_header_small;}
+    .store .current_section .cur{font-size: @header1_small;}
+    .store .current_section .cur_sub{font-size: @sub_header_small;}
     .store #menu{display: none;}
     .store #catalog{margin-left: 10px;}
 }
