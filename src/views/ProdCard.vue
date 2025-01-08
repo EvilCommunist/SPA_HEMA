@@ -76,7 +76,7 @@ export default {
       <section  class="current_section">
         <span class="cur">
           {{ product.name }}
-        </span>
+        </span><br>
         <span class="cur_sub">
           Каталог > {{ product.cathegory }} > {{ product.name }}
         </span>

@@ -44,7 +44,7 @@ export default {
       }
     },
     handleResize() {
-      this.isMobile = window.innerWidth < 600;
+      this.isMobile = window.innerWidth <= 770;
     },
     addToCart(product) {// Добавление в корзину
       
