@@ -4,6 +4,7 @@ import StoreView from '../views/StoreView.vue'
 import HowOrder from '../views/HowOrder.vue'
 import ProdCard from '../views/ProdCard.vue'
 import DevView from '../views/DevView.vue'
+import CertView from '../views/CartView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       name: 'DevView',
       component: DevView,
       props: true,
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: CertView,
     },
   ],
 })

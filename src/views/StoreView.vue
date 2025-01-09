@@ -14,6 +14,16 @@ export default {
       isMobile: window.innerWidth < 600,
     };
   },
+  async created() {
+    try {
+      await this.$store.dispatch('fetchProducts'); // Ожидаем загрузки данных
+    }
+    catch (error) {
+      this.error = error;
+    } finally {
+      this.loading = false;
+    }
+  },
   computed: {
     filteredProducts() { // Фильтрация товаров по категории
       if (!this.category) return this.products;
@@ -47,7 +57,7 @@ export default {
       this.isMobile = window.innerWidth <= 770;
     },
     addToCart(product) {// Добавление в корзину
-      
+      this.$store.dispatch('addToCart', product);
     },
     openProduct(product) {
       this.$router.push({

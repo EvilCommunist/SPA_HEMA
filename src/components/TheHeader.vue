@@ -1,6 +1,10 @@
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'TheHeader',
+  computed: {
+    ...mapGetters(['totalPrice', 'cartItems']),
+  },
   mounted() {
     // Обработчик для открытия/закрытия меню
     $('#bur-menu').on('click', () => {
@@ -43,8 +47,10 @@ export default {
           <router-link to="/store" class="decor">Каталог</router-link><br><router-link to="/" class="decor">О нас</router-link>
           <br><router-link to="/howToOrder" class="decor">Как заказать</router-link>
           <div class="cartholder">
-            <span id="cart_counter_phone">Placeholder<br><span id="price_counter_phone">Placeholder</span></span>
-            <button id="cart_phone"><img src="./Assets/cart.png" alt="cart_img" id="cart_img_phone"></button>
+            <span id="cart_counter_phone">{{ cartItems.length }} товаров<br><span id="price_counter_phone">{{ totalPrice }} рублей</span></span>
+            <button id="cart_phone">
+              <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img_phone"></router-link>
+            </button>
           </div>
         </nav>
       </div>
@@ -62,8 +68,10 @@ export default {
           </ul>
         </nav>
         <div class="cartholder">
-          <span id="cart_counter">Placeholder<br><span id="price_counter">Placeholder</span></span>
-          <button id="cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img"></button>
+          <span id="cart_counter">{{ cartItems.length }} товаров<br><span id="price_counter">{{ totalPrice }} рублей</span></span>
+          <button id="cart">
+            <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img"></router-link>
+          </button>
         </div>
         <img src="./Assets/burger-menu.png" alt="menu" id="bur-menu">
       </header>

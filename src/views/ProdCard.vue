@@ -59,8 +59,8 @@ export default {
     nextImage() {
       this.currentImageIndex = (this.currentImageIndex + 1) % this.allImages.length;
     },
-    addToCart() {
-      // Реализация с корзиной
+    addToCart(product) {
+      this.$store.dispatch('addToCart', product);
     },
     startAutoSlide() {
       this.autoSlideInterval = setInterval(() => {
@@ -131,7 +131,7 @@ export default {
             <li v-for="(char, index) in product.characteristics" :key="index"><span class="marker">></span> {{ char }}</li>
           </ul>
         </section>
-        <button @click="addToCart">В корзину</button>
+        <button @click="addToCart(product)">В корзину</button>
       </section>
       </div>
     </div>
