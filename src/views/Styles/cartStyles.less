@@ -19,8 +19,13 @@
                 display: flex; align-items: center;
                 margin-left: 2vw; justify-content: space-between;
                 font-size: @text;
-                .item_name{width: 35vw;}
                 .item_price{width: 8vw;}
+            }
+            .part_one{
+                .item_name{width: 35vw;}
+                display: flex;
+                width: 40vw;
+                justify-content: space-between;
             }
             .counter{
                 display: flex; width: 80px; justify-content: space-between;
@@ -52,6 +57,16 @@
                 background-color: @green;
                 border-width: @border-width*2; border-style: solid; border-color: @green;
             }
+            button:hover{
+                cursor: pointer; 
+                background-color: @red + @color_diff*2;
+                border-color: @red + @color_diff*2;
+            }
+            button.plus:hover{
+                background-color: @green + @color_diff;
+                border-color: @green + @color_diff;
+            }
+
         }
         margin-bottom: 3vh;
     }
@@ -82,6 +97,7 @@ hr{
         }
         textarea{height: 10vh; resize: none; font-size: @text_small;}
         input{height: 3vh; font-size: @text;}
+        label{color: @dark; font-size: @text;}
     }
 
     #paysection{
@@ -105,5 +121,104 @@ hr{
             border-image: none; border-style: solid;
             padding: 3px 15px;
             color: @dark;}
+    }
+}
+
+
+/*Адаптивное отображение при уменьшении вкладки*/
+@media screen and (max-width: 1200px) {
+    .store #items .item{width: 84vw;}
+    .store{
+        #items{
+            .item{
+                .part_one{
+                    display: block;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .store #form_pay_section{
+        #paysection{
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            width: 40vw;
+            .pay_info{
+                width: 40vw;
+            }
+        }
+    }
+    .store{
+        #items{ 
+            .item{
+                .item_text{
+                    width: inherit; color: @dark;
+                    display: flex; align-items: center;
+                    margin-left: 2vw; justify-content: space-between;
+                    font-size: @text;
+                    .item_name{width: 35vw;}
+                    .item_price{width: 15vw;}
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 770px) {
+    .store #form_pay_section{
+        display: flex;
+        flex-wrap: wrap;
+        #paysection{
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            width: 80vw;
+            .pay_info{
+                width: 80vw;
+            }
+            button{
+                .button(@red, @small_text, 30vw, 5px);
+            }
+        }
+        #formsection{
+            width: 80vw;
+            .red_star{color: @red;}
+            input, textarea{
+                width: 78vw;
+            }
+        }
+    }
+}
+@media screen and (max-width: 652px) {
+    .store{
+        #items{ 
+            .item{
+                .item_text{
+                    font-size: @text_small;
+                }
+            }
+        }
+    }
+    .store #order{
+        #finishing{font-size: @header2_small;}
+    }
+    .store #form_pay_section{
+        #formsection{
+            textarea{height: 10vh; resize: none; font-size: @small_text_small;}
+            input{height: 3vh; font-size: @text_small;}
+            label{font-size: @text_small;}
+        }
+        #paysection{
+            #alert{color: @gray; font-size: @small_text_small;}
+        }
+    }
+    
+}
+@media screen and (max-width: 550px) {
+    #cart{
+        padding: 10px;
     }
 }

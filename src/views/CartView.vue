@@ -10,12 +10,14 @@
         <section id="items">
             <div v-for="item in cartItems" :key="item.id" class="item">
                 <img :src="item.main_pic" :alt="item.name"/>
-                <div class="item_text">    
-                    <p class="item_name">{{ item.name }}</p>
-                    <div class="counter">
-                        <button @click="decreaseQuantity(item.id)" class="minus">-</button>
-                        <span class="item_count">{{ item.quantity }}</span>
-                        <button @click="increaseQuantity(item.id)" class="plus">+</button>
+                <div class="item_text">
+                    <div class="part_one">    
+                        <p class="item_name">{{ item.name }}</p>
+                        <div class="counter">
+                            <button @click="decreaseQuantity(item.id)" class="minus">-</button>
+                            <span class="item_count">{{ item.quantity }}</span>
+                            <button @click="increaseQuantity(item.id)" class="plus">+</button>
+                        </div>
                     </div>
                     <p class="item_price">{{ item.price * item.quantity }} руб.</p>
                 </div>
