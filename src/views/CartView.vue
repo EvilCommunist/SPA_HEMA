@@ -1,3 +1,12 @@
+<script>
+import { cartLogic } from './Scripts/cartLogic';
+
+export default {
+  ...cartLogic,
+};
+</script>
+
+
 <template>
     <!--Секция корзины с товарами-->
     <section class="store">
@@ -7,7 +16,7 @@
                 <span class="cur_sub">Главная > Корзина</span>
             </section>
             <div v-if="cartItems.length > 0" class="make_wider">
-        <section id="items">
+        <section id="items"><!--Секция отображения товаров в корзине-->
             <div v-for="item in cartItems" :key="item.id" class="item">
                 <img :src="item.main_pic" :alt="item.name"/>
                 <div class="item_text">
@@ -24,7 +33,7 @@
             </div>
         </section>
             <hr>
-        <section id="order">
+        <section id="order"><!--Секция оформления заказа-->
             <section id="form_pay_section">
                 <section id="formsection">
                     <span id="finishing">Оформление заказа</span>
@@ -74,75 +83,6 @@
     </section>
   </template>
   
-  <script>
-  import { mapGetters, mapActions } from 'vuex';
-  
-export default {
-data() {
-    return {
-    formData: {
-        fullName: '',
-        phone: '',
-        address: '',
-        comment: '',
-        paymentMethod: 'cash',
-    },
-    errors: {
-        fullName: '',
-        phone: '',
-        address: '',
-    },
-    };
-},
-computed: {
-    ...mapGetters(['cartItems', 'totalPrice']),
-},
-methods: {
-    ...mapActions(['removeFromCart', 'increaseQuantity', 'decreaseQuantity', 'clearCart']),
-    submitForm() {
-    this.errors = {
-        fullName: '',
-        phone: '',
-        address: '',
-    };
-    let isValid = true;
-    if (!this.formData.fullName.trim()) {
-        this.errors.fullName = 'Поле ФИО обязательно для заполнения';
-        isValid = false;
-    } else if (!/^[\p{L}\s]+$/u.test(this.formData.fullName)) {
-        this.errors.fullName = 'ФИО может содержать только буквы и пробелы';
-        isValid = false;
-    }
-    const phoneRegex = /^\+?[0-9]{10,15}$/;
-    if (!this.formData.phone.trim()) {
-        this.errors.phone = 'Поле номера телефона обязательно для заполнения';
-        isValid = false;
-    } else if (!phoneRegex.test(this.formData.phone)) {
-        this.errors.phone = 'Некорректный номер телефона';
-        isValid = false;
-    }
-    if (!this.formData.address.trim()) {
-        this.errors.address = 'Поле адреса доставки обязательно для заполнения';
-        isValid = false;
-    }
-    if (isValid) {
-        this.checkout();
-    }
-    },
-    checkout() {
-    alert(`Заказ оформлен! Способ оплаты: ${this.formData.paymentMethod}`);
-    this.clearCart();
-    this.formData = {
-        fullName: '',
-        phone: '',
-        address: '',
-        comment: '',
-        paymentMethod: 'cash',
-    };
-    },
-},
-};
-</script>
   
 <style scoped lang="less">
 @import "./Styles/cartStyles.less";
