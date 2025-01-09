@@ -99,10 +99,12 @@ export default {
 
 <template>
   <main>
+    <!--Секция каталога с товарами-->
     <section class="store">
       <div class="vertical-text top decor">{{ leftText }}</div>
       <div class="vertical-text bottom decor">{{ rightText }}</div>
       <div class="container flex">
+        <!--Боковое меню с типами товара-->
         <aside id="menu">
           <span id="nameSection" @click.prevent="resetCategory">Каталог</span>
           <hr>
@@ -145,6 +147,7 @@ export default {
             <section class="current_section">
               <span class="cur">{{ currentSection }}</span><br>
               <span class="cur_sub" @click="toggleMenu">{{ currentSubSection }}</span>
+              <!--Выпадающее меню для маелньких экранов-->
               <div v-if="isMenuVisible && isMobile" class="dropdown-menu">
                 <ul>
                   <li><a href="#" @click.prevent="resetCategory">Весь ассортимент</a></li>
@@ -179,6 +182,7 @@ export default {
                 </ul>
               </div>
             </section>
+            <!--Карточка товара-->
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" @click="openProduct(product)" />
               <p>{{ product.name }}</p>

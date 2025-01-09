@@ -17,7 +17,7 @@ export default createStore({
       } else {
         // Если товара нет в корзине, добавляем его с количеством 1
         if (product.remain > 0) {
-          state.cart.push({ ...product, quantity: 1 });
+            state.cart.push({ ...product, quantity: 1, main_pic: product.main_pic });
         } else {
           alert('Товар отсутствует на складе');
         }

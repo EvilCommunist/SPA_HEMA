@@ -1,0 +1,66 @@
+@import "./storeStyle.less";
+
+
+/*Стили корзины*/
+.store .container.flex{
+    flex-wrap: wrap;
+    justify-content: flex-start; gap: 3vh;
+}
+
+.store{
+    #items{ 
+        width: 80vw;
+        .item{
+            border-width: 1px; border-color: @light_gray; border-radius: 10px; border-style: solid;
+            padding: 10px; width: 80vw; display: flex;
+            .item_text{
+                width: inherit; color: @dark;
+                display: flex; align-items: center;
+                margin-left: 2vw; justify-content: space-between;
+                font-size: @text;
+                .item_name{width: 35vw;}
+                .item_price{width: 8vw;}
+            }
+            .counter{
+                display: flex; width: 80px; justify-content: space-between;
+                position: relative;
+                .item_count{
+                    position: absolute; z-index: 3;
+                    border-width: 1px; border-style: solid; border-color: @light_gray;
+                    padding-left: 35px; padding-right: 25px; box-sizing: border-box;
+                    padding-bottom: 1px; border-radius: 6px;
+                }
+            }
+
+            img{
+                width: 120px; height: 120px;
+                object-fit: cover; border-radius: 10px;
+            }
+            button{
+                text-align: center;
+                .button(@red, @small_text, 10px, 5px);
+                border-width: @border-width*2; border-style: solid; border-color: @red;
+                border-radius: 5px;
+                max-height: 28px;
+                max-width: 25px;
+                z-index: 6; box-sizing: border-box;
+                padding-right: 1px; padding-bottom: 1px;
+            }
+            button.plus{
+                background-color: @green;
+                border-width: @border-width*2; border-style: solid; border-color: @green;
+            }
+        }
+        margin-bottom: 3vh;
+    }
+}
+
+hr{
+    width: 81.5vw;
+    border: solid; border-color: @light_gray; border-width: 1px;
+    margin-bottom: 3vh;
+}
+
+.store #order{
+    #finishing{font-size: @header2;}
+}

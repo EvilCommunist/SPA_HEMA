@@ -88,8 +88,8 @@ export default {
 
 
 <template>
+  <!--Секция карточки товара-->
   <div class="store">
-    <!-- Проверка на наличие product -->
     <div v-if="product">
       <div class="vertical-text top decor">{{ displayCategory }}</div>
       <div class="vertical-text bottom decor">{{ displayCategory }}</div>
