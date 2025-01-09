@@ -47,7 +47,7 @@ header #cart_counter{
 }
 #alt-menu #close_cross:hover{cursor:pointer;}
 #alt-menu #close_cross #close_cross_img{max-width: 30px; max-height: 30px;}
-#alt-menu nav.container.flex{flex-flow: column; height: 50vh; margin-top: 15vh;}
+#alt-menu nav.container.flex{flex-flow: column; height: 55vh; margin-top: 15vh; overflow: hidden;}
 #alt-menu #cart_counter_phone{
     border: 1px solid; display: block;
     border-radius: 10px;
@@ -68,7 +68,7 @@ header #cart_counter{
     padding: 10px 30px 10px 8px;
     box-sizing: border-box;
 }
-#alt-menu .cartholder{margin-top: 5vh;}
+#alt-menu .cartholder{margin-top: 2vh;}
 
 
 /*Стили для подвала сайта*/
