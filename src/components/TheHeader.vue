@@ -26,8 +26,8 @@ export default {
       <!-- Заголовочник сайта - содержит логотип, навигационное меню и корзину -->
       <header class="container flex">
         <div class="logosection">
-          <router-link to="/store"><img src="./Assets/goldgrif.png" alt="logo" class="logo"></router-link>
-          <router-link to="/store"><h2 id="logo-name">Золотой<br>грифон</h2></router-link>
+          <router-link to="/"><img src="./Assets/goldgrif.png" alt="logo" class="logo"></router-link>
+          <router-link to="/"><h2 id="logo-name">Золотой<br>грифон</h2></router-link>
         </div>
         <nav>
           <ul>
