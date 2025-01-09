@@ -1,4 +1,3 @@
-// store.js
 import { createStore } from 'vuex';
 
 export default createStore({
@@ -9,15 +8,30 @@ export default createStore({
     addToCart(state, product) {
       const existingProduct = state.cart.find(p => p.id === product.id);
       if (existingProduct) {
-        existingProduct.quantity += 1;
+        // Проверяем, не превышает ли новое количество доступное количество
+        if (existingProduct.quantity < product.remain) {
+          existingProduct.quantity += 1;
+        } else {
+          alert('Достигнуто максимальное количество товара');
+        }
       } else {
-        state.cart.push({ ...product, quantity: 1 });
+        // Если товара нет в корзине, добавляем его с количеством 1
+        if (product.remain > 0) {
+          state.cart.push({ ...product, quantity: 1 });
+        } else {
+          alert('Товар отсутствует на складе');
+        }
       }
     },
     increaseQuantity(state, productId) {
       const product = state.cart.find(p => p.id === productId);
       if (product) {
-        product.quantity += 1;
+        // Проверяем, не превышает ли новое количество доступное количество
+        if (product.quantity < product.remain) {
+          product.quantity += 1;
+        } else {
+          alert('Достигнуто максимальное количество товара');
+        }
       }
     },
     decreaseQuantity(state, productId) {
@@ -59,5 +73,8 @@ export default createStore({
     cartItems(state) {
       return state.cart;
     },
+    totalItems(state) {
+        return state.cart.reduce((total, product) => total + product.quantity, 0);
+      },
   },
 });
