@@ -45,7 +45,7 @@
 .store .current_section{width: inherit; position: relative;}
 .store .current_section .cur{color: @dark; font-size: @header1;}
 .store .current_section .cur_sub{color: @gray; font-size: @sub_header;}
-.store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover; min-width: 200px; min-height: 100px;}
+.store #catalog img{max-width: 15vw; max-height: 8.5vw; border-top-right-radius: 10px; border-top-left-radius: 10px; object-fit: cover; min-width: 200px; min-height: 100px; cursor: pointer;}
 .store #catalog .product{
     border-width: 1px; border-style: solid; border-color: @light_gray;
     width: 15vw; border-radius: 10px; display: flex; flex-flow: column;  
@@ -67,6 +67,7 @@
     display: flex; justify-content: center; 
     align-items: center; margin: 5px auto; 
 }
+.store #catalog .product button:hover {background-color: @red+@color_diff*2; cursor: pointer;}
 .store #catalog .prod_bottom{margin-top: auto;}
 
 /*Стили выпадающего меню*/
