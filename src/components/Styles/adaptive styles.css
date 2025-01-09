@@ -17,6 +17,18 @@ header .logosection{
     display: flex;
     height: inherit;
 }
+header .logosection a{
+    text-decoration: none; border: none;
+}
+header .logosection a:hover{
+    text-decoration: none; border: none;
+}
+header .cartholder a{
+    text-decoration: none; border: none;
+}
+header .cartholder a:hover{
+    text-decoration: none; border: none;
+}
 header .logosection h2{padding-top: 5px;}
 header #cart_counter{
     border: 1px solid; display: block;

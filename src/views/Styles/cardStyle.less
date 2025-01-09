@@ -1,0 +1,88 @@
+@import "../../assets/vars.less";
+
+/*Стили для карточки товара*/
+.store #product_view {width: 40vw;}
+.store #character_and_cart button {.button(@red, @text*1.1, 15vw, 10px); border-radius: 5px;}
+.store #character_and_cart button:hover {background-color: @red+@color_diff*2; cursor: pointer;}
+.store #character_and_cart {
+    width: 45vw; display: flex;
+    flex-flow:column; gap: 30vh;
+    color: @dark; font-size: @text; 
+    #character{
+        padding-left: 1vw;
+        #cha{font-size: @sub_header;}
+        .marker{color: @gray;}
+    };
+}
+
+/*Стили слайдера*/
+.slider {
+    margin-top: 2vh;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 10px;
+}
+.main-image{
+    width: 40vw; height: 60vh;
+    display: flex; justify-content: center;
+}
+.main-image img {
+    max-width: 40vw; height: auto;
+    max-height: 60vh;
+    border-radius: 10px;
+}
+.thumbnails {
+    display: flex; gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.thumbnail {
+    width: 60px; height: 60px;
+    border: @border-width solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+.thumbnail.active {border-color: @gray;}
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 1440px) {
+    .main-image{
+        width: 300px; height: 300px;
+    }
+    .main-image img{
+        width: auto; height: auto;
+        max-width: 300px; max-height: 300px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .store .container.flex{flex-wrap: wrap;}
+    .store #product_view {
+        width: auto; min-width: 440px;
+    }
+    .store #character_and_cart {
+        width: auto; min-width: 440px;
+        margin-top: 10px;
+    }   
+    .store #character_and_cart button {font-size: @text;}
+}
+@media screen and (max-width: 652px) {
+    .store .container.flex{padding: 5px;}
+    .store #character_and_cart {
+        font-size: @text_small; 
+        #character{
+            #cha{font-size: @sub_header_small;}
+        };
+    }
+    .store #product_view {
+        width: 95vw;
+    }
+    .store #character_and_cart {
+        width: 95vw;
+    }   
+    .store #character_and_cart button {font-size: @text_small; margin-left: 2vw; margin-right: 2vw;}
+}

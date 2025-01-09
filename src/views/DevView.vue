@@ -1,6 +1,12 @@
 <script>
 export default {
   name: 'StoreView',
+  props: {
+    password: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       products: [],
@@ -12,17 +18,10 @@ export default {
       currentSubSection: 'Каталог',
       isMenuVisible: false, 
       isMobile: window.innerWidth < 600,
+      correctPassword: import.meta.env.VITE_DEV_PASSWORD, // Пароль для режима администрирования
+      accessGranted: false,
+      showContent: false, showAdminPanel: true,
     };
-  },
-  async created() {
-    try {
-      await this.$store.dispatch('fetchProducts'); // Ожидаем загрузки данных
-    }
-    catch (error) {
-      this.error = error;
-    } finally {
-      this.loading = false;
-    }
   },
   computed: {
     filteredProducts() { // Фильтрация товаров по категории
@@ -31,6 +30,9 @@ export default {
     },
   },
   methods: {
+    checkAccess() {
+      return this.password === String(this.correctPassword);
+    },
     setCategory(category) {
       this.category = category;
       const displayText = category.includes('комплекты') ? category.replace('комплекты', '').trim() : category;
@@ -57,7 +59,7 @@ export default {
       this.isMobile = window.innerWidth <= 770;
     },
     addToCart(product) {// Добавление в корзину
-      this.$store.dispatch('addToCart', product);
+      
     },
     openProduct(product) {
       this.$router.push({
@@ -67,9 +69,32 @@ export default {
       },
     });
     },
+    increaseQuantity(product) {
+        product.remain += 1;
+        this.updateProductInJson(product);
+    },
+    decreaseQuantity(product) {
+        if (product.remain > 0) {
+        product.remain -= 1;
+        this.updateProductInJson(product);
+        }
+    },
+    async updateProductInJson(product) {
+        try {
+        const response = await fetch('/goods.json');
+        const data = await response.json();
+        const updatedInventory = data.inventory.map((p) =>
+            p.id === product.id ? { ...p, remain: product.remain } : p
+        );
+        data.inventory = updatedInventory;
+        console.log('Товар обновлен:', product);
+        } catch (error) {
+        console.error('Ошибка при обновлении товара:', error);
+        }
+    },
     async fetchProducts() { // Загрузка товаров с файла
       try {
-        const response = await fetch('./goods.json');
+        const response = await fetch('/goods.json');
         const data = await response.json();
         this.products = data.inventory;
       } catch (error) {
@@ -99,12 +124,22 @@ export default {
 
 <template>
   <main>
-    <!--Секция каталога с товарами-->
+<div v-if="showAdminPanel">
+    <div v-if="!checkAccess()">
+    <!-- Контент для администрирования -->
+    <h1>В доступе отказано!</h1>
+  </div>
+  <div v-else>
+    <h1>Добро пожаловать в admin секцию!</h1>
+    <p>Это страница для администрирования магазина.</p>
+    <button @click="showContent = true; showAdminPanel=false">Начать</button>
+  </div>
+</div>
+<div v-if="showContent">
     <section class="store">
       <div class="vertical-text top decor">{{ leftText }}</div>
       <div class="vertical-text bottom decor">{{ rightText }}</div>
       <div class="container flex">
-        <!--Боковое меню с типами товара-->
         <aside id="menu">
           <span id="nameSection" @click.prevent="resetCategory">Каталог</span>
           <hr>
@@ -147,7 +182,6 @@ export default {
             <section class="current_section">
               <span class="cur">{{ currentSection }}</span><br>
               <span class="cur_sub" @click="toggleMenu">{{ currentSubSection }}</span>
-              <!--Выпадающее меню для маелньких экранов-->
               <div v-if="isMenuVisible && isMobile" class="dropdown-menu">
                 <ul>
                   <li><a href="#" @click.prevent="resetCategory">Весь ассортимент</a></li>
@@ -182,23 +216,24 @@ export default {
                 </ul>
               </div>
             </section>
-            <!--Карточка товара-->
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" @click="openProduct(product)" />
               <p>{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
-                Цена: {{ product.price }} руб.
-                <button @click="addToCart(product)">В корзину</button>
+                <button class="plus" @click="increaseQuantity(product)">+</button>
+                На складе: {{ product.remain }} шт.
+                <button class="minus" @click="decreaseQuantity(product)">-</button>
               </div>
             </div>
           </div>
         </section>
       </div>
     </section>
+</div>
   </main>
 </template>
 
 <style scoped lang="less">
-@import "./Styles/storeStyle.less";
+@import "./Styles/adminStyles.less";
 </style>
