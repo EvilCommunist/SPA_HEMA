@@ -53,7 +53,7 @@
         "price": 150000,
         "remain": 2,
         "main_pic":"/imagesOfGoods/Russian_set_main.jpg",
-        "alt_pics":["", "", ""],
+        "alt_pics":["/imagesOfGoods/russian_alt/1.jpg", "/imagesOfGoods/russian_alt/2.jpg", "/imagesOfGoods/russian_alt/3.jpg", "/imagesOfGoods/russian_alt/4.jpg", "/imagesOfGoods/russian_alt/5.jpg"],
         "characteristics": ["Шлем тип 4 из Никольского", "Кольчужная рубаха", "Пластиначтый/ламеллярный доспех", "Стальные наручи", "Кожаные сапоги для верховой езды", "Романский меч"]
       },
       {
@@ -64,7 +64,7 @@
         "price": 115000,
         "remain": 5,
         "main_pic":"/imagesOfGoods/Hospitalier_set_main.jpg",
-        "alt_pics":["", "", ""],
+        "alt_pics":["/imagesOfGoods/hospit_alt/1.jpg", "/imagesOfGoods/hospit_alt/2.jpg", "/imagesOfGoods/hospit_alt/3.jpg", "/imagesOfGoods/hospit_alt/4.png", "/imagesOfGoods/hospit_alt/5.jpg"],
         "characteristics": ["Норманнский шлем", "Тяжёлая кольчуга", "Кольчужные варежки", "Кольчужные поножи", "Надоспешная одежда госпитальера", "Топорик/Романский меч"]
       }
     ],

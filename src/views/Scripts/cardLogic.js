@@ -56,6 +56,9 @@ export const cardLogic = {
       nextImage() {
         this.currentImageIndex = (this.currentImageIndex + 1) % this.allImages.length;
       },
+      changeImage(index) {
+        this.currentImageIndex = index;
+      },
       addToCart(product) {
         this.$store.dispatch('addToCart', product);
       },
