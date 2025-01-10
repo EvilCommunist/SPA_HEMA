@@ -10,7 +10,7 @@
         "remain": 25,
         "main_pic":"/imagesOfGoods/kvetun_romanian_main.jpg",
         "alt_pics":["/imagesOfGoods/romanian_alt/1.jpg", "/imagesOfGoods/romanian_alt/2.jpg", "/imagesOfGoods/romanian_alt/3.jpg", "/imagesOfGoods/romanian_alt/4.jpg"],
-        "characteristics": ["Длина клинка: 800мм", "Толщина клинка в рикассо: 6мм", "Толщина клинка у отсрия: 3мм", "Длина крестовины: 180 мм"]
+        "characteristics": ["Длина клинка: 800мм", "Толщина клинка в рикассо: 6мм", "Толщина клинка у острия: 3мм", "Длина крестовины: 180 мм", "Твёрдость: 47-50 HRC", "Длина рукояти: 110 мм", "Длина изделия (общая): 970 мм", "Точка баланса: 95 мм", "Общий вес: 1150 гр", "Гарантия: 1 год"]
       },
       {
         "id": 2,
@@ -20,8 +20,8 @@
         "price": 13000,
         "remain": 19,
         "main_pic":"/imagesOfGoods/kvetun_caroling_main.jpg",
-        "alt_pics":["", "", ""],
-        "characteristics": ["", "", "", "", "", ""]
+        "alt_pics":["/imagesOfGoods/caroling_alt/1.jpg", "/imagesOfGoods/caroling_alt/2.jpg", ""],
+        "characteristics": ["Длина клинка: 750 мм", "Ширина клинка в рикассо: 500 мм", "Длина крестовины: 100 мм", "Длина рукояти: 115 мм", "Длина изделия (общая): 910 мм", "Точка баланса: 120 мм", "Общий вес: 1012 гр", "Гарантия: 1 год"]
       },
       {
         "id": 3,
@@ -54,7 +54,7 @@
         "remain": 2,
         "main_pic":"/imagesOfGoods/Russian_set_main.jpg",
         "alt_pics":["", "", ""],
-        "characteristics": ["", "", "", "", "", ""]
+        "characteristics": ["Шлем тип 4 из Никольского", "Кольчужная рубаха", "Пластиначтый/ламеллярный доспех", "Стальные наручи", "Кожаные сапоги для верховой езды", "Романский меч"]
       },
       {
         "id": 6,
@@ -65,7 +65,7 @@
         "remain": 5,
         "main_pic":"/imagesOfGoods/Hospitalier_set_main.jpg",
         "alt_pics":["", "", ""],
-        "characteristics": ["", "", "", "", "", ""]
+        "characteristics": ["Норманнский шлем", "Тяжёлая кольчуга", "Кольчужные варежки", "Кольчужные поножи", "Надоспешная одежда госпитальера", "Топорик/Романский меч"]
       }
     ],
     "total": 6
