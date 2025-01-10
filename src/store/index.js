@@ -8,14 +8,14 @@ export default createStore({
     addToCart(state, product) {
       const existingProduct = state.cart.find(p => p.id === product.id);
       if (existingProduct) {
-        // Проверяем, не превышает ли новое количество доступное количество
+        // Проверка на превышение новым количеством доступных товаров
         if (existingProduct.quantity < product.remain) {
           existingProduct.quantity += 1;
         } else {
           alert('Достигнуто максимальное количество товара');
         }
       } else {
-        // Если товара нет в корзине, добавляем его с количеством 1
+        // Если товара нет - добавить
         if (product.remain > 0) {
             state.cart.push({ ...product, quantity: 1, main_pic: product.main_pic });
         } else {
@@ -26,7 +26,6 @@ export default createStore({
     increaseQuantity(state, productId) {
       const product = state.cart.find(p => p.id === productId);
       if (product) {
-        // Проверяем, не превышает ли новое количество доступное количество
         if (product.quantity < product.remain) {
           product.quantity += 1;
         } else {
