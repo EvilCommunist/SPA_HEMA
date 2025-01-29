@@ -31,8 +31,8 @@
         "price": 20000,
         "remain": 10,
         "main_pic":"/imagesOfGoods/kvetun_oficer_rapier_main.jpg",
-        "alt_pics":["", "", ""],
-        "characteristics": ["", "", "", "", "", ""]
+        "alt_pics":["/imagesOfGoods/rapier_alt/1.jpg", "/imagesOfGoods/rapier_alt/2.jpg"],
+        "characteristics": ["Длина клинка: 1140 мм", "Толщина клинка в рикассо: 5.8 мм", "Длина крестовины: 275 мм", "Толщина клинка у острия: 3.5 мм", "Длина изделия (общая): 1290 мм", "Точка баланса: 132 мм", "Общий вес: 1205 гр", "Гарантия: 1 год"]
       },
       {
         "id": 4,
@@ -42,8 +42,8 @@
         "price": 35000,
         "remain": 5,
         "main_pic":"/imagesOfGoods/spear_main.jpeg",
-        "alt_pics":["", "", ""],
-        "characteristics": ["", "", "", "", "", ""]
+        "alt_pics":[],
+        "characteristics": []
       },
       {
         "id": 5,
