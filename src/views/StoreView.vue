@@ -96,7 +96,7 @@ export default {
             <!--Карточка товара-->
             <div v-for="product in filteredProducts" :key="product.id" class="product">
               <img :src="product.main_pic" :alt="product.name" @click="openProduct(product)" />
-              <p>{{ product.name }}</p>
+              <p @click="openProduct(product)" class="prodName">{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
                 Цена: {{ product.price }} руб.
