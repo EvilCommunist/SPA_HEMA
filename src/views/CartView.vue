@@ -18,7 +18,9 @@ export default {
             <div v-if="cartItems.length > 0" class="make_wider">
         <section id="items"><!--Секция отображения товаров в корзине-->
             <div v-for="item in cartItems" :key="item.id" class="item">
-                <img :src="item.main_pic" :alt="item.name"/>
+                <div class="img_holder">
+                    <img :src="item.main_pic" :alt="item.name"/>
+                </div>
                 <div class="item_text">
                     <div class="part_one">    
                         <p class="item_name">{{ item.name }}</p>
