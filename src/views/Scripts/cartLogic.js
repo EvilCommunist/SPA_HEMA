@@ -19,6 +19,13 @@ export const cartLogic = {
   },
   computed: {
     ...mapGetters(['cartItems', 'totalPrice']),
+    /*(itemCountStyle() {
+      return (quantity) => {
+        return {
+          paddingRight: quantity >= 10 ? '32px' : '28px',
+        };
+      };
+    },*/
   },
   methods: {
     ...mapActions(['removeFromCart', 'increaseQuantity', 'decreaseQuantity', 'clearCart']),
