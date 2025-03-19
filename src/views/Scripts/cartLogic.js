@@ -59,16 +59,50 @@ export const cartLogic = {
         this.checkout();
       }
     },
-    checkout() { // Эмуляция успешного заказа
-      alert(`Заказ оформлен! Способ оплаты: ${this.formData.paymentMethod}`);
-      this.clearCart();
-      this.formData = {
-        fullName: '',
-        phone: '',
-        address: '',
-        comment: '',
-        paymentMethod: 'cash',
-      };
+    async checkout() {
+      try {
+        const cartItemIds = this.cartItems.map(item => item.id);
+    
+        const orderData = {
+          ...this.formData,
+          cartItems: cartItemIds, 
+        };
+    
+        console.log("Order data:", orderData); // Отладочный вывод
+    
+        const response = await fetch('/process_form.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(orderData),
+        });
+    
+        const responseText = await response.text();
+        console.log("Response from server:", responseText);
+    
+        if (!response.ok) {
+          throw new Error('Ошибка при отправке данных');
+        }
+    
+        const result = JSON.parse(responseText);
+        if (result.success) {
+          alert(`Заказ оформлен! Способ оплаты: ${this.formData.paymentMethod}`);
+          this.clearCart();
+          this.formData = {
+            fullName: '',
+            phone: '',
+            address: '',
+            comment: '',
+            paymentMethod: 'cash',
+          };
+        } else {
+          throw new Error(result.message || 'Ошибка при обработке заказа');
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при оформлении заказа. Пожалуйста, попробуйте ещё раз.');
+      }
     },
   },
 };
