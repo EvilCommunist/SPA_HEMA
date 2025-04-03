@@ -110,7 +110,12 @@ export default {
                 <button class="plus" @click="increaseQuantity(product)">+</button>
                 На складе: {{ product.remain }} шт.
                 <button class="minus" @click="decreaseQuantity(product)">-</button>
+                <button class="change">Редактировать</button>
               </div>
+            </div>
+            <div id="new_one" class="product">
+              <p>добавить<br>новый<br>товар</p>
+              <span id="big_plus">+</span>
             </div>
           </div>
         </section>

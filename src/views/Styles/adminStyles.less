@@ -16,3 +16,22 @@
     display: flex; justify-content: center; 
     align-items: center; margin: 5px auto; 
 }
+
+.store #catalog .product button.change{
+    .button(@blue, @text, 45px, 10px);
+}
+
+.store #catalog .product#new_one{
+    cursor: pointer;
+    p{
+        text-align: center;
+        font-size: @header2;
+        margin-top: 25px;
+    }
+    span#big_plus{
+        color: @white;
+        font-size: @header1;
+        margin-top: 25px;
+    }
+    background-color: @green;
+}

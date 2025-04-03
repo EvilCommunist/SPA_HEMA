@@ -5,6 +5,7 @@ import HowOrder from '../views/HowOrder.vue'
 import ProdCard from '../views/ProdCard.vue'
 import DevView from '../views/DevView.vue'
 import CertView from '../views/CartView.vue'
+import ChangeView from '@/views/ChangeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: CertView,
+    },
+    {
+      path: '/edit/:id',
+      name: 'edit',
+      component: ChangeView,
     },
   ],
 })
