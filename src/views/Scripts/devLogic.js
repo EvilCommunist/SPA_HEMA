@@ -32,6 +32,9 @@ export const devLogic = {
       checkAccess() { // Проверка доступа
         return this.password === String(this.correctPassword);
       },
+      openEditView(product) {
+        this.$router.push({ name: 'edit', params: { id: product.id } });
+      },
       setCategory(category) {
         this.category = category;
         const displayText = category.includes('комплекты') ? category.replace('комплекты', '').trim() : category;

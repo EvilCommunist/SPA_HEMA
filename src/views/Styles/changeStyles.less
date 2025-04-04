@@ -1,0 +1,41 @@
+@import "../../assets/elements.less";
+
+.store{
+    input{
+        font-size: @text;
+        width: 20vw;
+            border-color: @light_gray; border-radius: 8px;
+            border-image: none; border-style: solid;
+            padding: 3px 15px;
+            color: @dark;
+    }
+    input#edit_name{
+        font-size: @header2;
+        width: 30vw;
+    }
+    .remove_image{
+        .button(@red, @header2, 15px, 5px);
+    }
+    #character_and_cart{ 
+        .remove_char{
+            .button(@red, @text, 30px, 10px);
+            margin: 5px;
+        }
+        .add_char_btn{
+            .button(@green, @text, 40px, 10px);
+            margin: 5px;
+        }
+        .edit_section{margin: 5px;}
+        .edit_desc{height: 10vh; resize: none; font-size: @text_small; padding: 5px; color:@dark;}
+        .action_btns{
+            .cancel_btn{
+                .button(@red, @header2, 10vw, 10px);
+                margin: 5px;
+            }
+            .save_btn{
+                .button(@green, @header2, 10vw, 10px);
+                margin: 5px;
+            }
+        }
+    }
+}

@@ -35,7 +35,6 @@ const router = createRouter({
       path: '/admin/:password',
       name: 'DevView',
       component: DevView,
-      props: true,
     },
     {
       path: '/cart',
@@ -46,6 +45,7 @@ const router = createRouter({
       path: '/edit/:id',
       name: 'edit',
       component: ChangeView,
+      props: true,
     },
   ],
 })

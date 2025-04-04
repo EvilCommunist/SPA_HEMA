@@ -103,14 +103,14 @@ export default {
               </div>
             </section>
             <div v-for="product in filteredProducts" :key="product.id" class="product">
-              <img :src="product.main_pic" :alt="product.name" @click="openProduct(product)" />
+              <img :src="product.main_pic" :alt="product.name" @click="openEditView(product)" />
               <p>{{ product.name }}</p>
               <span class="descript">{{ product.description }}</span>
               <div class="prod_bottom">
                 <button class="plus" @click="increaseQuantity(product)">+</button>
                 На складе: {{ product.remain }} шт.
                 <button class="minus" @click="decreaseQuantity(product)">-</button>
-                <button class="change">Редактировать</button>
+                <button class="change" @click="openEditView(product)">Редактировать</button>
               </div>
             </div>
             <div id="new_one" class="product">
