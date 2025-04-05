@@ -36,11 +36,20 @@ export default {
             <li><router-link to="/howToOrder" class="decor">Как заказать</router-link></li>
           </ul>
         </nav>
-        <div class="cartholder">
-          <span id="cart_counter">{{ totalItems }} товаров<br><span id="price_counter">{{ totalPrice }} рублей</span></span>
-          <button id="cart">
-            <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img"></router-link>
-          </button>
+        <div id="cart_and_prof">
+          <div class="cartholder">
+            <span id="cart_counter">{{ totalItems }} товаров<br><span id="price_counter">{{ totalPrice }} рублей</span></span>
+            <button id="cart">
+              <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img"></router-link>
+            </button>
+          </div>
+          <div class="profile" @click.stop="toggleProfileMenu">
+            <img src="./Assets/profile-svgrepo-com.svg" alt="profile_img" id="prof_pic">
+            <div v-if="showProfileDropdown" class="profile-dropdown">
+              <router-link to="/login" class="dropdown-item" @click="closeProfileMenu">Войти</router-link>
+              <router-link to="/register" class="dropdown-item" @click="closeProfileMenu">Зарегистрироваться</router-link>
+            </div>
+          </div>
         </div>
         <img src="./Assets/burger-menu.png" alt="menu" id="bur-menu">
       </header>

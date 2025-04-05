@@ -38,6 +38,36 @@ header #cart_counter{
     box-sizing: border-box;
 }
 .cartholder{display: flex;}
+header #cart_and_prof{display: flex;}
+header #cart_and_prof .profile{margin-left: 1vw; display: flex; align-items: center; position: relative; cursor: pointer;}
+header #cart_and_prof .profile #prof_pic{max-width: 50px; max-height: 50px;}
+
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+header {
+    overflow: visible !important; /*для выпадающего меню профиля*/
+}
 
 /*Стили "альтернативного" меню - для телефона*/
 #alt-menu{display: none;}
