@@ -1,56 +1,29 @@
-export const changeLogic = {
-    props: {
-      id: {
-        type: String,
-        required: true
-      }
-    },
+export const addProductLogic = {
     data() {
       return {
-        product: null,
-        loading: true,
-        error: null,
+        product: {
+          id: 0,
+          name: '',
+          description: '',
+          cathegory: '',
+          price: 0,
+          remain: 0,
+          characteristics: [],
+          main_pic: '',
+          alt_pics: []
+        },
+        loading: false,
         currentImageIndex: 0,
         newImages: [],
         tempImages: []
       };
     },
     computed: {
-      allImages() {
-        if (!this.product) return [];
-        return [this.product.main_pic, ...(this.product.alt_pics || []).filter(img => img)];
-      },
       currentImage() {
-        return this.allImages[this.currentImageIndex] || '';
-      },
-      displayCategory() {
-        if (!this.product) return '';
-        return this.product.cathegory?.replace('комплекты', '').trim() || '';
+        return this.tempImages[this.currentImageIndex] || '';
       }
     },
     methods: {
-      async fetchProduct() {
-        try {
-          const response = await fetch('/goods.json');
-          if (!response.ok) throw new Error('Ошибка при загрузке данных');
-          
-          const data = await response.json();
-          const product = data.inventory.find(p => p.id === parseInt(this.id));
-          
-          if (!product) {
-            this.error = 'Товар не найден';
-            return;
-          }
-  
-          this.product = JSON.parse(JSON.stringify(product));
-          this.tempImages = [...this.allImages];
-        } catch (error) {
-          this.error = 'Ошибка при загрузке данных';
-          console.error('Ошибка:', error);
-        } finally {
-          this.loading = false;
-        }
-      },
       changeImage(index) {
         this.currentImageIndex = index;
       },
@@ -66,6 +39,7 @@ export const changeLogic = {
               if (!this.product.alt_pics) this.product.alt_pics = [];
               this.product.alt_pics[this.currentImageIndex - 1] = e.target.result;
             }
+            this.tempImages = [...this.tempImages, e.target.result];
           };
           reader.readAsDataURL(files[i]);
         }
@@ -88,10 +62,9 @@ export const changeLogic = {
       removeCharacteristic(index) {
         this.product.characteristics.splice(index, 1);
       },
-      async saveChanges() {
+      async saveProduct() {
         try {
-          // Здесь должна быть логика сохранения
-          console.log('Сохранение товара:', this.product);
+          console.log('Новый товар:', this.product);
           this.$router.go(-1);
         } catch (error) {
           console.error('Ошибка сохранения:', error);
@@ -100,8 +73,5 @@ export const changeLogic = {
       cancelEditing() {
         this.$router.go(-1);
       }
-    },
-    created() {
-      this.fetchProduct();
     }
   };

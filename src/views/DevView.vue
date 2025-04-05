@@ -113,8 +113,7 @@ export default {
                 <button class="change" @click="openEditView(product)">Редактировать</button>
               </div>
             </div>
-            <div id="new_one" class="product">
-              <p>добавить<br>новый<br>товар</p>
+            <div id="new_one" class="product" @click="addNewProduct">
               <span id="big_plus">+</span>
             </div>
           </div>

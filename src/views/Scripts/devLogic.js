@@ -35,6 +35,9 @@ export const devLogic = {
       openEditView(product) {
         this.$router.push({ name: 'edit', params: { id: product.id } });
       },
+      addNewProduct() {
+        this.$router.push('/create');
+      },
       setCategory(category) {
         this.category = category;
         const displayText = category.includes('комплекты') ? category.replace('комплекты', '').trim() : category;

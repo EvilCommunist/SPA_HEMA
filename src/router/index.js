@@ -6,6 +6,7 @@ import ProdCard from '../views/ProdCard.vue'
 import DevView from '../views/DevView.vue'
 import CertView from '../views/CartView.vue'
 import ChangeView from '@/views/ChangeView.vue'
+import AddView from '@/views/AddView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,6 +48,11 @@ const router = createRouter({
       name: 'edit',
       component: ChangeView,
       props: true,
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: AddView,
     },
   ],
 })
