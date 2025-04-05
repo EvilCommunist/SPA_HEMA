@@ -15,6 +15,10 @@
     }
     .remove_image{
         .button(@red, @header2, 15px, 5px);
+        cursor:pointer;
+    }
+    .remove_image:hover{
+        .button(@red+@color_diff*2, @header2, 15px, 5px);
     }
     #character_and_cart{ 
         .remove_char{
@@ -25,16 +29,25 @@
             .button(@green, @text, 40px, 10px);
             margin: 5px;
         }
+        .add_char_btn:hover{
+            .button(@green+@color_diff, @text, 40px, 10px);
+        }
         .edit_section{margin: 5px;}
-        .edit_desc{height: 10vh; resize: none; font-size: @text_small; padding: 5px; color:@dark;}
+        .edit_desc{height: 10vh; resize: none; font-size: @text_small; padding: 5px; color:@dark; min-width: 300px; min-height: 90px;}
         .action_btns{
             .cancel_btn{
-                .button(@red, @header2, 10vw, 10px);
+                .button(@red, @header2, 11vw, 10px);
                 margin: 5px;
+            }
+            .cancel_btn:hover{
+                .button(@red+@color_diff*2, @header2, 11vw, 10px);
             }
             .save_btn{
                 .button(@green, @header2, 10vw, 10px);
                 margin: 5px;
+            }
+            .save_btn:hover{
+                .button(@green+@color_diff, @header2, 10vw, 10px);
             }
         }
     }

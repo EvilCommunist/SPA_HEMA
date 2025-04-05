@@ -35,6 +35,7 @@ const router = createRouter({
       path: '/admin/:password',
       name: 'DevView',
       component: DevView,
+      props: true,
     },
     {
       path: '/cart',
