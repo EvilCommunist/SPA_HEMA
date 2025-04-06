@@ -22,7 +22,8 @@ export default {
           <input v-model="product.name" id="edit_name" />
           <div class="slider">
             <div class="main-image">
-              <img :src="currentImage" :alt="product.name" />
+              <img :src="currentImage" :alt="product.name" v-if="currentImage" />
+              <div v-else class="empty-image">Нет изображения</div>
             </div>
             <div class="thumbnails">
               <div
@@ -33,9 +34,8 @@ export default {
                 @click="changeImage(index)"
               >
                 <img :src="image" :alt="`Thumbnail ${index + 1}`" />
-                
+                <button @click.stop="removeImage(index)" class="remove_image">Х</button>
               </div>
-              <button @click.stop="removeImage(index)" class="remove_image">Х</button>
             </div>
             <input type="file" @change="handleImageUpload" accept="image/*" multiple id="image_upload">
           </div>
@@ -71,7 +71,9 @@ export default {
           </section>
           
           <div class="action_btns">
-            <button @click="saveChanges" class="save_btn">Сохранить</button>
+            <button @click="saveChanges" class="save_btn" :disabled="saving">
+              {{ saving ? 'Сохранение...' : 'Сохранить' }}
+            </button>
             <button @click="cancelEditing" class="cancel_btn">Отмена</button>
           </div>
         </section>
@@ -81,7 +83,7 @@ export default {
       <p>Загрузка...</p>
     </div>
     <div v-else>
-      <p>Товар не найден.</p>
+      <p>{{ error || 'Товар не найден.' }}</p>
     </div>
   </div>
 </template>
