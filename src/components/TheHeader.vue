@@ -47,7 +47,7 @@ export default {
             <img src="./Assets/profile-svgrepo-com.svg" alt="profile_img" id="prof_pic">
             <div v-if="showProfileDropdown" class="profile-dropdown">
               <router-link to="/login" class="dropdown-item" @click="closeProfileMenu">Войти</router-link>
-              <router-link to="/register" class="dropdown-item" @click="closeProfileMenu">Зарегистрироваться</router-link>
+              <router-link to="/auth" class="dropdown-item" @click="closeProfileMenu">Зарегистрироваться</router-link>
             </div>
           </div>
         </div>

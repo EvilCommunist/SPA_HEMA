@@ -1,8 +1,12 @@
 <template>
   <div class="auth-form">
     <button class="close-btn" @click="close">×</button>
-    <h2>Вход</h2>
+    <h2>Регистрация</h2>
     <form @submit.prevent="submit">
+      <div class="form-group">
+        <label>Имя</label>
+        <input type="text" v-model="name" required>
+      </div>
       <div class="form-group">
         <label>Email</label>
         <input type="email" v-model="email" required>
@@ -11,7 +15,11 @@
         <label>Пароль</label>
         <input type="password" v-model="password" required>
       </div>
-      <button type="submit" class="submit-btn">Войти</button>
+      <div class="form-group">
+        <label>Подтвердите пароль</label>
+        <input type="password" v-model="confirmPassword" required>
+      </div>
+      <button type="submit" class="submit-btn">Зарегистрироваться</button>
     </form>
   </div>
 </template>
@@ -20,8 +28,10 @@
 export default {
   data() {
     return {
+      name: '',
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
   },
   methods: {
@@ -29,8 +39,12 @@ export default {
       this.$emit('close');
     },
     submit() {
-      // Здесь будет логика входа
-      console.log('Login attempt with:', this.email, this.password);
+      if (this.password !== this.confirmPassword) {
+        alert('Пароли не совпадают!');
+        return;
+      }
+      // Здесь будет логика регистрации
+      console.log('Register attempt with:', this.name, this.email, this.password);
       this.close();
     }
   }
@@ -38,6 +52,7 @@ export default {
 </script>
 
 <style scoped>
+/* Стили такие же как у LoginForm.vue */
 .auth-modal {
   position: fixed;
   top: 0;

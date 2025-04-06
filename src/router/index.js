@@ -7,6 +7,8 @@ import DevView from '../views/DevView.vue'
 import CertView from '../views/CartView.vue'
 import ChangeView from '@/views/ChangeView.vue'
 import AddView from '@/views/AddView.vue'
+import LoginView from '@/views/LoginView.vue'
+import RegView from '@/views/RegView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,6 +55,16 @@ const router = createRouter({
       path: '/create',
       name: 'create',
       component: AddView,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView,
+    },
+    {
+      path: '/auth',
+      name: 'authorize',
+      component: RegView,
     },
   ],
 })
