@@ -7,14 +7,29 @@ export default {
     }
   },
   methods: {
-    close() {
-      window.location.href = '/';
-    },
-    submit() {
-      // Здесь будет логика входа
-      console.log('Login attempt with:', this.email, this.password);
-      this.close();
+    async submit() {
+    try {
+      const response = await fetch('/process_login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        //localStorage.setItem('authToken', data.token);
+        this.$router.push('/');
+      } else {
+        alert(data.message || 'Ошибка входа');
+      }
+    } catch (error) {
+      console.error('Ошибка:', error);
+      alert('Произошла ошибка при входе');
     }
+  }
   }
 }
 </script>

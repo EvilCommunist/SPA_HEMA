@@ -21,23 +21,44 @@ export default {
       const phoneRegex = /^(\+7|8)\d{10}$/;
       return phoneRegex.test(phone);
     },
-    submit() {
-      if (!this.validateName(this.name)) {
-        alert('ФИО введено некорректно!');
-        return;
+    async submit() {
+      try {
+        if (!this.validateName(this.name)) {
+          alert('ФИО введено некорректно!');
+          return;
+        }
+        if (!this.validatePhone(this.phone)) {
+          alert('ФИО введено некорректно!');
+          return;
+        }
+        const response = await fetch('/process_reg.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: this.name,
+            email: this.email,
+            phone: this.phone,
+            password: this.password,
+            confirmPassword: this.confirmPassword
+          })
+        });  
+        const data = await response.json();
+        if (data.success) {
+          alert('Регистрация успешна!');
+          this.$router.push('/login');
+        } else {
+          if (data.errors) {
+            for (const error in data.errors) {
+              alert(data.errors[error]);
+            }
+          } else {
+            alert(data.message || 'Ошибка регистрации');
+          }
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при регистрации');
       }
-      if (!this.validatePhone(this.phone)) {
-        alert('Номер телефона должен соответствовать формату (пример: 89007775544 или +79007775544)');
-        return;
-      }
-      if (this.password !== this.confirmPassword) {
-        alert('Пароли не совпадают!');
-        return;
-      }
-      
-      // Здесь будет логика регистрации
-      console.log('Register attempt with:', this.name, this.email, this.phone, this.password);
-      this.close();
     }
   }
 }
