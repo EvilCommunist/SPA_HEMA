@@ -62,6 +62,7 @@ header #cart_and_prof .profile #prof_pic{max-width: 50px; max-height: 50px;}
     text-decoration: none;
 }
 
+
 .dropdown-item:hover {
     background-color: #f5f5f5;
 }

@@ -1,0 +1,38 @@
+@import "./../../assets/vars.less";
+@import "./../../assets/elements.less";
+
+#form.container.flex{
+    flex-flow: column; text-align: justify; gap:1vh;
+    background-color: @white;
+    color:@dark; border-radius: 10px;
+    padding: 25px; box-sizing: border-box;
+    input{
+        width: 20vw;
+        border-color: @light_gray; border-radius: 8px;
+        border-image: none; border-style: solid;
+        padding: 3px 15px;
+        color: @dark;
+    }
+    input{height: 3vh; font-size: @text;}
+    label{color: @dark; font-size: @text;}
+    .auth{
+        flex-flow: column; text-align: justify; gap:1vh;
+        background-color: @white;
+        color:@dark; border-radius: 10px;
+        padding: 25px; box-sizing: border-box;
+    }
+    button{
+        .button(@green, @text, 11.5vw, 5px);
+        cursor: pointer;
+    }
+    button:hover{
+        .button(@green+@color_diff, @text, 11.5vw, 5px);
+    }
+    button#reg{
+        .button(@red, @text, 8.5vw, 5px);
+        cursor: pointer;
+    }
+    button#reg:hover{
+        .button(@red+@color_diff*2, @text, 8.5vw, 5px);
+    }
+}
