@@ -1,3 +1,24 @@
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    close() {
+      window.location.href = '/';
+    },
+    submit() {
+      // Здесь будет логика входа
+      console.log('Login attempt with:', this.email, this.password);
+      this.close();
+    }
+  }
+}
+</script>
+
 <template>
   <div id="form" class="container flex">
       <form @submit.prevent="submit">
@@ -13,27 +34,6 @@
       </form>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    close() {
-      this.$emit('close');
-    },
-    submit() {
-      // Здесь будет логика входа
-      console.log('Login attempt with:', this.email, this.password);
-      this.close();
-    }
-  }
-}
-</script>
 
 <style scoped lang="less">
 @import "./Styles/formStyles.less";

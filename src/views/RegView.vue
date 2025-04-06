@@ -1,3 +1,48 @@
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      password: '',
+      confirmPassword: ''
+    }
+  },
+  methods: {
+    close() {
+      window.location.href = '/';
+    },
+    validateName(name) {
+      const nameRegex = /^([А-ЯЁа-яёA-Za-z]+(?:-[А-ЯЁа-яёA-Za-z]+)*\s){1,}[А-ЯЁа-яёA-Za-z]+(?:-[А-ЯЁа-яёA-Za-z]+)*$/;
+      return nameRegex.test(name);
+    },
+    validatePhone(phone) {
+      const phoneRegex = /^(\+7|8)\d{10}$/;
+      return phoneRegex.test(phone);
+    },
+    submit() {
+      if (!this.validateName(this.name)) {
+        alert('ФИО введено некорректно!');
+        return;
+      }
+      if (!this.validatePhone(this.phone)) {
+        alert('Номер телефона должен соответствовать формату (пример: 89007775544 или +79007775544)');
+        return;
+      }
+      if (this.password !== this.confirmPassword) {
+        alert('Пароли не совпадают!');
+        return;
+      }
+      
+      // Здесь будет логика регистрации
+      console.log('Register attempt with:', this.name, this.email, this.phone, this.password);
+      this.close();
+    }
+  }
+}
+</script>
+
 <template>
   <div id="form" class="container flex">
     <form @submit.prevent="submit">
@@ -11,7 +56,7 @@
       </div>
       <div class="auth">
         <label>Номер телефона (пример: 89007775544)</label><br>
-        <input type="email" v-model="email" required>
+        <input type="tel" v-model="phone" required>
       </div>
       <div class="auth">
         <label>Пароль</label><br>
@@ -25,33 +70,6 @@
     </form>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    }
-  },
-  methods: {
-    close() {
-      this.$emit('close');
-    },
-    submit() {
-      if (this.password !== this.confirmPassword) {
-        alert('Пароли не совпадают!');
-        return;
-      }
-      // Здесь будет логика регистрации
-      console.log('Register attempt with:', this.name, this.email, this.password);
-      this.close();
-    }
-  }
-}
-</script>
 
 <style scoped lang="less">
 @import "./Styles/formStyles.less";
