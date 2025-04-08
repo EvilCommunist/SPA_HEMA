@@ -35,10 +35,10 @@ const router = createRouter({
       props: true,
     },
     {
-      path: '/admin/:password',
+      path: '/admin',
       name: 'DevView',
       component: DevView,
-      props: true,
+      meta: { requiresAuth: true }
     },
     {
       path: '/cart',
@@ -50,11 +50,13 @@ const router = createRouter({
       name: 'edit',
       component: ChangeView,
       props: true,
+      meta: { requiresAuth: true }
     },
     {
       path: '/create',
       name: 'create',
       component: AddView,
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',
@@ -68,5 +70,24 @@ const router = createRouter({
     },
   ],
 })
+
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.requiresAuth) {
+    try {
+      const response = await fetch('/api/check_admin.php');
+      const data = await response.json();
+      if (!data.isAdmin) {
+        next('/store');
+      } else {
+        next();
+      }
+    } catch (error) {
+      console.error('Ошибка проверки администратора:', error);
+      next('/store');
+    }
+  } else {
+    next();
+  }
+});
 
 export default router

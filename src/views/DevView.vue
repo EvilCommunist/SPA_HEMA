@@ -10,17 +10,17 @@ export default {
 
 <template>
   <main>
-<div v-if="showAdminPanel">
-    <div v-if="!checkAccess()">
-    <!-- Контент для администрирования -->
-    <h1>В доступе отказано!</h1>
-  </div>
-  <div v-else>
-    <h1>Добро пожаловать в admin секцию!</h1>
-    <p>Это страница для администрирования магазина.</p>
-    <button @click="showContent = true; showAdminPanel=false">Начать</button>
-  </div>
-</div>
+    <div v-if="showAdminPanel">
+      <div v-if="!accessGranted">
+        <h1>В доступе отказано!</h1>
+      </div>
+      <div v-else>
+        <h1>Добро пожаловать, {{ username }}!</h1>
+        <p>Это страница для администрирования магазина.</p>
+        <button @click="showContent = true; showAdminPanel=false">Начать</button>
+        <button @click="logout">Выйти</button>
+      </div>
+    </div>
 <div v-if="showContent">
     <section class="store">
       <div class="vertical-text top decor">{{ leftText }}</div>

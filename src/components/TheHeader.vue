@@ -2,60 +2,94 @@
 import { headerLogic } from './Scripts/HeaderLogic';
 export default {
   name: 'TheHeader',
-  ...headerLogic,
+  ...headerLogic
 }
 </script>
 
-
 <template>
     <div>
-      <!-- Альтернативное навигационное меню для работы на маленьком экране/экране телефона -->
+      <!-- Mobile menu -->
       <div id="alt-menu">
-        <button id="close_cross"><img id="close_cross_img" src="./Assets/close-cross.png" alt="close"></button>
+        <button id="close_cross">
+          <img id="close_cross_img" src="./Assets/close-cross.png" alt="Close menu">
+        </button>
         <nav class="container flex">
-          <router-link to="/store" class="decor">Каталог</router-link><br><router-link to="/" class="decor">О нас</router-link>
-          <br><router-link to="/howToOrder" class="decor">Как заказать</router-link>
+          <a @click="handleCatalogNavigation" class="decor">Каталог</a>
+          <br>
+          <router-link to="/" class="decor">О нас</router-link>
+          <br>
+          <router-link to="/howToOrder" class="decor">Как заказать</router-link>
           <div class="cartholder">
-            <span id="cart_counter_phone">{{ totalItems }} товаров<br><span id="price_counter_phone">{{ totalPrice }} рублей</span></span>
+            <span id="cart_counter_phone">
+              {{ totalItems }} товаров<br>
+              <span id="price_counter_phone">{{ totalPrice }} рублей</span>
+            </span>
             <button id="cart_phone">
-              <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img_phone"></router-link>
+              <router-link to="/cart">
+                <img src="./Assets/cart.png" alt="Cart" id="cart_img_phone">
+              </router-link>
             </button>
           </div>
         </nav>
       </div>
-      <!-- Заголовочник сайта - содержит логотип, навигационное меню и корзину -->
+
+      <!-- Main header -->
       <header class="container flex">
         <div class="logosection">
-          <router-link to="/"><img src="./Assets/goldgrif.png" alt="logo" class="logo"></router-link>
-          <router-link to="/"><h2 id="logo-name">Золотой<br>грифон</h2></router-link>
+          <router-link to="/">
+            <img src="./Assets/goldgrif.png" alt="Logo" class="logo">
+          </router-link>
+          <router-link to="/">
+            <h2 id="logo-name">Золотой<br>грифон</h2>
+          </router-link>
         </div>
+
         <nav>
           <ul>
-            <li><router-link to="/store" class="decor">Каталог</router-link></li>
+            <li><a @click="handleCatalogNavigation" class="decor">Каталог</a></li>
             <li><router-link to="/" class="decor">О нас</router-link></li>
             <li><router-link to="/howToOrder" class="decor">Как заказать</router-link></li>
           </ul>
         </nav>
+
         <div id="cart_and_prof">
           <div class="cartholder">
-            <span id="cart_counter">{{ totalItems }} товаров<br><span id="price_counter">{{ totalPrice }} рублей</span></span>
+            <span id="cart_counter">
+              {{ totalItems }} товаров<br>
+              <span id="price_counter">{{ totalPrice }} рублей</span>
+            </span>
             <button id="cart">
-              <router-link to="/cart"><img src="./Assets/cart.png" alt="cart_img" id="cart_img"></router-link>
+              <router-link to="/cart">
+                <img src="./Assets/cart.png" alt="Cart" id="cart_img">
+              </router-link>
             </button>
           </div>
+
           <div class="profile" @click.stop="toggleProfileMenu">
-            <img src="./Assets/profile-svgrepo-com.svg" alt="profile_img" id="prof_pic">
+            <img src="./Assets/profile-svgrepo-com.svg" alt="Profile" id="prof_pic">
             <div v-if="showProfileDropdown" class="profile-dropdown">
-              <router-link to="/login" class="dropdown-item" @click="closeProfileMenu">Войти</router-link>
-              <router-link to="/auth" class="dropdown-item" @click="closeProfileMenu">Зарегистрироваться</router-link>
+              <router-link 
+                to="/login" 
+                class="dropdown-item" 
+                @click="closeProfileMenu"
+              >
+                Войти
+              </router-link>
+              <router-link 
+                to="/auth" 
+                class="dropdown-item" 
+                @click="closeProfileMenu"
+              >
+                Зарегистрироваться
+              </router-link>
             </div>
           </div>
         </div>
-        <img src="./Assets/burger-menu.png" alt="menu" id="bur-menu">
+
+        <img src="./Assets/burger-menu.png" alt="Menu" id="bur-menu">
       </header>
     </div>
 </template>
-
 
 <style scoped lang="less">
 @import "./Styles/adaptive styles.css";
