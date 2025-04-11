@@ -69,7 +69,7 @@ export const devLogic = {
     },
     async updateProductInJson(product) {
       try {
-        const response = await fetch('/goods.json');
+        const response = await fetch('/get_goods.php');
         const data = await response.json();
         const updatedInventory = data.inventory.map((p) =>
           p.id === product.id ? { ...p, remain: product.remain } : p

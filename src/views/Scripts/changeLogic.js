@@ -33,7 +33,7 @@ export const changeLogic = {
   methods: {
     async fetchProduct() {
       try {
-        const response = await fetch('/goods.json');
+        const response = await fetch('/get_goods.php');
         if (!response.ok) throw new Error('Ошибка при загрузке данных');
         
         const data = await response.json();
