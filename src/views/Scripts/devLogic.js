@@ -82,7 +82,7 @@ export const devLogic = {
     },
     async fetchProducts() { // Считывание товаров с файла
       try {
-        const response = await fetch('/goods.json');
+        const response = await fetch('/get_goods.php');
         const data = await response.json();
         this.products = data.inventory;
       } catch (error) {
