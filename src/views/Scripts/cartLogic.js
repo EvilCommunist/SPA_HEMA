@@ -61,14 +61,13 @@ export const cartLogic = {
     },
     async checkout() {
       try {
-        const cartItemIds = this.cartItems.map(item => item.id);
-    
         const orderData = {
           ...this.formData,
-          cartItems: cartItemIds, 
+          cartItems: this.cartItems.map(item => ({
+            id: item.id,
+            quantity: item.quantity
+          })), 
         };
-    
-        console.log("Order data:", orderData); // Отладочный вывод
     
         const response = await fetch('/process_form.php', {
           method: 'POST',
