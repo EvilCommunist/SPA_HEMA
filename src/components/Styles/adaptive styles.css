@@ -103,7 +103,7 @@ header {
 
 
 /*Стили для подвала сайта*/
-footer{height: 100px; margin-top: 10px; padding-bottom: 10px;}
+footer{height: 100px; margin-top: 10px; margin-bottom: 10px;}
 footer img.media{max-height: 40px; max-width: 40px;}
 footer #copyright_bigscreen{display: flex;}
 footer #copyright_smallscreen{margin-top: 12px ; display: none;}

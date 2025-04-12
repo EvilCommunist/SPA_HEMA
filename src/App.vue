@@ -22,4 +22,9 @@ export default {
 </template>
 
 <style>
+#app{
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 99vh;
+}
 </style>
